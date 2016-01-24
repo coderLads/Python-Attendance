@@ -14,3 +14,10 @@ example:
 attendance.py Integrity! Offsite 11:30 Pings 40
 
 if you wish to sign out multiple students at the same time, add more studentids to the end of the command
+
+Requires:
+fuzzywuzzy
+speechrecongnition
+selenium
+pyttyx
+pywin32
