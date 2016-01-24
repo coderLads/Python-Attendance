@@ -1,3 +1,6 @@
+#custom ignored files
+attendance_output.html
+
 # Windows image file caches
 Thumbs.db
 ehthumbs.db
