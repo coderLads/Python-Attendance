@@ -1,0 +1,2199 @@
+<!DOCTYPE html><html xmlns="http://www.w3.org/1999/xhtml"><head>
+	    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+	<meta name="HandheldFriendly" content="true" />
+                <title>PSCS Attendance</title>
+		<link rel="stylesheet" type="text/css" href="attendance.css" />
+        <link rel="stylesheet" type="text/css" href="responsive.css" />
+        <link rel="stylesheet" type="text/css" href="mobile.css" />
+		<link rel="stylesheet" type="text/css" href="css/jquery.timepicker.css" />    
+	    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+	    <script src="js/jquery.timepicker.min.js" type="text/javascript"></script>
+        <script src="js/OffsiteCount.js" type="text/javascript"></script>
+        <link rel="shortcut icon" type="image/png" href="img/mobius.png" />
+        <link rel="stylesheet" href="css/pikaday.css" />
+        <link rel="apple-touch-icon" href="img/mobius.png" type="image/png" />
+        	    <script type="text/javascript">
+
+			
+
+
+			$(document).ready(function(){
+				$('#offtime').timepicker({ 'scrollDefaultNow': true, 'minTime': '9:00am', 'maxTime': '3:30pm', 'timeFormat': 'g:i', 'step': 5 });
+				$('#fttime').timepicker({ 'scrollDefaultNow': true, 'minTime': '9:00am', 'maxTime': '3:30pm', 'timeFormat': 'g:i', 'step': 15 });
+				$('.late_time').timepicker({ 'scrollDefaultNow': true, 'minTime': '9:00am', 'maxTime': '3:30pm', 'timeFormat': 'g:i', 'step': 5 });
+			});
+		</script>
+		<script type="text/javascript">
+			function setIdle(cb, seconds) {
+    			var timer; 
+    			var interval = seconds * 1000;
+    			function refresh() {
+            		clearInterval(timer);
+            		timer = setTimeout(cb, interval);
+    			};
+    		$(document).on('keypress, click, mousemove', refresh);
+    		refresh();
+			}
+			
+			setIdle(function() {location.href = location.href;}, 300);
+		</script>
+	</head>
+	<body class="mainpage">
+	<!-- setup -->
+	                         <form method="post" action="index.php" id="lmain">
+        		<div class="groupsGUI"><h1 class="groupHeader tab">Groups</h1><input class="groupButton" type="submit" name="Seniors" value="Seniors" /><br /><input class="groupButton" type="submit" name="Middle_School" value="Middle School" /><br /><input class="groupButton" type="submit" name="Handball" value="Handball" /><br /><input class="groupButton" type="submit" name="Climb_Stairs" value="Climb Stairs" /><br /><p class="groupHeader">Field Trip Groups</p><input class="groupButton" type="submit" name="Nic" value="Nic" /><br /></div>             </form>
+	<!-- top form for change status -->
+	<div id="top_header">
+	<form method="post" action="index.php" id="main">
+		
+		<div>
+			<!-- top interface present button -->
+	        <input class="PSCSbtn button" id="present_button" type="submit" value="P" name="present" style="width: 25px;" />
+	    </div>
+	   
+	   	<div>
+			<!-- top interface sign out button -->
+			<input class="PSCSbtn" type="submit" value="Check Out" name="checkout" onclick="return confirm('Confirmation: \nAre you sure you want to check out?');" />
+		</div>
+ 
+	    <div>
+			<!-- top interface offsite -->
+	        
+<span id="cdropdown"><select id="offlocDropdown" name="offlocDropdown" class="offlocDropdown">
+<option value="">Offsite Location</option>
+    <option value="Chipotle ">Chipotle</option>   <option value="Eastern Cafe ">Eastern Cafe</option>   <option value="Marination ">Marination</option>   <option value="Oasis ">Oasis</option>   <option value="Pings ">Pings</option>   <option value="Specialty's ">Specialty's</option>   <option value="Starbucks ">Starbucks</option>   <option value="Uwajimaya ">Uwajimaya</option>   <option value="World Pizza ">World Pizza</option> <option name="Custom" value="Custom" style="background-color:lightgrey;">Custom</option>
+</select></span>
+<span id="cdiv">
+
+</span>
+			<input type="text" class="aTextField ui-timepicker-input" name="offtime" placeholder="Return time" id="offtime" autocomplete="off" />
+	        <input class="button" type="submit" name="offsite" value="Offsite" />
+	    </div>
+	    
+	    <div>
+			<!-- top interface fieldtrip -->
+	    
+			<!-- Creates the dropdown of facilitators -->
+			<select name="facilitator"><option value="">Select Facilitator</option>
+	         
+					<option value="Andy"> Andy</option>
+	         
+					<option value="Anne"> Anne</option>
+	         
+					<option value="Chrissy"> Chrissy</option>
+	         
+					<option value="Crysta"> Crysta</option>
+	         
+					<option value="Dan"> Dan</option>
+	         
+					<option value="Judy"> Judy</option>
+	         
+					<option value="Kristin_J"> Kristin_J</option>
+	         
+					<option value="Liana"> Liana</option>
+	         
+					<option value="Melinda"> Melinda</option>
+	         
+					<option value="Nic"> Nic</option>
+	         
+					<option value="Quinn_H"> Quinn_H</option>
+	         
+					<option value="Sam"> Sam</option>
+	         
+					<option value="Scobie"> Scobie</option>
+	         
+					<option value="Sieglinde"> Sieglinde</option>
+	         
+					<option value="Special_Approved"> Special_Approved</option>
+	        	        </select>
+	        <input type="text" name="fttime" placeholder="Return time" id="fttime" class="ui-timepicker-input" autocomplete="off" />
+	       <input class="button" type="submit" name="fieldtrip" value="Field Trip" /> 
+	    </div>
+		<div class="statusview_button">
+			<a href="statusview.php">Status</a>
+		</div>
+        <!-- Link To Admin Page -->
+        		<div class="viewreports_button">
+			<a href="viewreports.php">Reports</a>
+		</div>
+        <div>
+			<a href="secondary_login.php?logout=1">Logout</a>
+		</div>
+		</form>
+	</div>
+	
+	<script>
+		$(document).ready(function() {
+			$(window).resize(function() {
+				if($(window).width() &lt; 1020) {
+					$('.viewreports_button a').text('Reports');
+					$('.statusview_button a').text('Status');
+					$('.admin_button a').text('A');
+					$("#present_button").prop('value', 'P');
+					$("#present_button").css('width', '25px');
+				}
+				else {
+					$('.viewreports_button a').text('View Reports');
+					$('.statusview_button a').text('Status View');
+					$('.admin_button a').text('Admin');
+					$("#present_button").prop('value', 'Present');
+					$("#present_button").css('width', '60px');
+				}
+				
+				if ($(window).width() &lt; 830) {
+				    $(".l_button").prop('value', 'L');
+				}
+				else {
+				    $('.l_button').prop('value', 'Late');
+				}
+				
+			});
+			
+			if($(window).width() &lt; 1020) {
+				$('.viewreports_button a').text('Reports');
+				$('.statusview_button a').text('Status');
+				$('.admin_button a').text('A');
+				$("#present_button").prop('value', 'P');
+				$("#present_button").css('width', '25px');
+			}
+			else {
+				$('.viewreports_button a').text('View Reports');
+				$('.statusview_button a').text('Status View');
+				$('.admin_button a').text('Admin');
+				$("#present_button").prop('value', 'Present');
+				$("#present_button").css('width', '60px');
+			}
+			
+			if ($(window).width() &lt; 830) {
+			$(".l_button").prop('value', 'L');
+			
+		    }
+		    else {
+			$('.l_button').prop('value', 'Late');
+		    }
+
+		});
+	</script>
+        
+        
+	
+        
+	<!-- student information table rendering -->
+	<div id="main_table">
+	<table class="data_table" id="big_table">
+	    <tbody><tr>
+	        <th class="select_col"><input type="checkbox" id="checkAll" /></th>
+			<!-- clickable headers for the table, allows them to be sorted -->
+	        <th class="student_col"><a href="index.php?sortBy=student&amp;r=0">Student</a></th>
+			<th class="blank_col"></th>
+	        <th class="status_col" id="status_header"><a href="index.php?sortBy=status&amp;r=0">Status</a></th>
+			
+	    </tr>
+	     
+        
+                        <tr class="Status_Red">
+                    
+                                        
+					<td class="select_col">
+						<!-- checkbox that gives student data to the form at the top -->
+						<input type="checkbox" name="person[]" id="55" value="55" form="main" class="c_box" />
+	
+					</td>
+					            <!-- displays current rows student name, that students status and any comment associated with that status -->
+					<td class="student_col">
+						<a href="user.php?id=55&amp;name=Adin">Adin A</a>
+					</td>
+					<td class="student_col_buttons">
+						                    
+                        <!-- IF CHECK OUT IS NEAR -->
+										<form action="index.php" method="post">
+							<input type="submit" value="P" class="p_button tablebutton" name="present_button" />
+							<input type="hidden" name="present_bstudent" value="55" />
+						</form>
+						                            <form action="index.php" method="post">
+							<input class="tablebutton" type="submit" value="A" name="Absent" />
+							<input type="hidden" name="absent_student" value="55" />
+                                </form>
+												<!-- Late button with time input next to it -->
+                            <form action="index.php" method="post">
+							<input class="tablebutton l_button" id="latebutton" type="submit" value="Late" name="Late" />
+							<input type="input" name="late_time" placeholder="Expected" class="late_time ui-timepicker-input" autocomplete="off" />
+							<input type="hidden" name="late_student" value="55" />
+                                </form>
+						
+						
+					</td>
+					<td class="status_col">Not Checked In 						</td>
+				</tr>
+	  
+        
+                        <tr class="Status_Red">
+                    
+                                        
+					<td class="select_col">
+						<!-- checkbox that gives student data to the form at the top -->
+						<input type="checkbox" name="person[]" id="72" value="72" form="main" class="c_box" />
+	
+					</td>
+					            <!-- displays current rows student name, that students status and any comment associated with that status -->
+					<td class="student_col">
+						<a href="user.php?id=72&amp;name=Aidan">Aidan A</a>
+					</td>
+					<td class="student_col_buttons">
+						                    
+                        <!-- IF CHECK OUT IS NEAR -->
+										<form action="index.php" method="post">
+							<input type="submit" value="P" class="p_button tablebutton" name="present_button" />
+							<input type="hidden" name="present_bstudent" value="72" />
+						</form>
+						                            <form action="index.php" method="post">
+							<input class="tablebutton" type="submit" value="A" name="Absent" />
+							<input type="hidden" name="absent_student" value="72" />
+                                </form>
+												<!-- Late button with time input next to it -->
+                            <form action="index.php" method="post">
+							<input class="tablebutton l_button" id="latebutton" type="submit" value="Late" name="Late" />
+							<input type="input" name="late_time" placeholder="Expected" class="late_time ui-timepicker-input" autocomplete="off" />
+							<input type="hidden" name="late_student" value="72" />
+                                </form>
+						
+						
+					</td>
+					<td class="status_col">Not Checked In 						</td>
+				</tr>
+	  
+        
+                        <tr class="Status_Red">
+                    
+                                        
+					<td class="select_col">
+						<!-- checkbox that gives student data to the form at the top -->
+						<input type="checkbox" name="person[]" id="17" value="17" form="main" class="c_box" />
+	
+					</td>
+					            <!-- displays current rows student name, that students status and any comment associated with that status -->
+					<td class="student_col">
+						<a href="user.php?id=17&amp;name=Angus">Angus B</a>
+					</td>
+					<td class="student_col_buttons">
+						                    
+                        <!-- IF CHECK OUT IS NEAR -->
+										<form action="index.php" method="post">
+							<input type="submit" value="P" class="p_button tablebutton" name="present_button" />
+							<input type="hidden" name="present_bstudent" value="17" />
+						</form>
+						                            <form action="index.php" method="post">
+							<input class="tablebutton" type="submit" value="A" name="Absent" />
+							<input type="hidden" name="absent_student" value="17" />
+                                </form>
+												<!-- Late button with time input next to it -->
+                            <form action="index.php" method="post">
+							<input class="tablebutton l_button" id="latebutton" type="submit" value="Late" name="Late" />
+							<input type="input" name="late_time" placeholder="Expected" class="late_time ui-timepicker-input" autocomplete="off" />
+							<input type="hidden" name="late_student" value="17" />
+                                </form>
+						
+						
+					</td>
+					<td class="status_col">Not Checked In 						</td>
+				</tr>
+	  
+        
+                        <tr class="Status_Red">
+                    
+                                        
+					<td class="select_col">
+						<!-- checkbox that gives student data to the form at the top -->
+						<input type="checkbox" name="person[]" id="29" value="29" form="main" class="c_box" />
+	
+					</td>
+					            <!-- displays current rows student name, that students status and any comment associated with that status -->
+					<td class="student_col">
+						<a href="user.php?id=29&amp;name=Anthony">Anthony R</a>
+					</td>
+					<td class="student_col_buttons">
+						                    
+                        <!-- IF CHECK OUT IS NEAR -->
+										<form action="index.php" method="post">
+							<input type="submit" value="P" class="p_button tablebutton" name="present_button" />
+							<input type="hidden" name="present_bstudent" value="29" />
+						</form>
+						                            <form action="index.php" method="post">
+							<input class="tablebutton" type="submit" value="A" name="Absent" />
+							<input type="hidden" name="absent_student" value="29" />
+                                </form>
+												<!-- Late button with time input next to it -->
+                            <form action="index.php" method="post">
+							<input class="tablebutton l_button" id="latebutton" type="submit" value="Late" name="Late" />
+							<input type="input" name="late_time" placeholder="Expected" class="late_time ui-timepicker-input" autocomplete="off" />
+							<input type="hidden" name="late_student" value="29" />
+                                </form>
+						
+						
+					</td>
+					<td class="status_col">Not Checked In 						</td>
+				</tr>
+	  
+        
+                        <tr class="Status_Red">
+                    
+                                        
+					<td class="select_col">
+						<!-- checkbox that gives student data to the form at the top -->
+						<input type="checkbox" name="person[]" id="81" value="81" form="main" class="c_box" />
+	
+					</td>
+					            <!-- displays current rows student name, that students status and any comment associated with that status -->
+					<td class="student_col">
+						<a href="user.php?id=81&amp;name=Arturo">Arturo S</a>
+					</td>
+					<td class="student_col_buttons">
+						                    
+                        <!-- IF CHECK OUT IS NEAR -->
+										<form action="index.php" method="post">
+							<input type="submit" value="P" class="p_button tablebutton" name="present_button" />
+							<input type="hidden" name="present_bstudent" value="81" />
+						</form>
+						                            <form action="index.php" method="post">
+							<input class="tablebutton" type="submit" value="A" name="Absent" />
+							<input type="hidden" name="absent_student" value="81" />
+                                </form>
+												<!-- Late button with time input next to it -->
+                            <form action="index.php" method="post">
+							<input class="tablebutton l_button" id="latebutton" type="submit" value="Late" name="Late" />
+							<input type="input" name="late_time" placeholder="Expected" class="late_time ui-timepicker-input" autocomplete="off" />
+							<input type="hidden" name="late_student" value="81" />
+                                </form>
+						
+						
+					</td>
+					<td class="status_col">Not Checked In 						</td>
+				</tr>
+	  
+        
+                        <tr class="Status_Red">
+                    
+                                        
+					<td class="select_col">
+						<!-- checkbox that gives student data to the form at the top -->
+						<input type="checkbox" name="person[]" id="21" value="21" form="main" class="c_box" />
+	
+					</td>
+					            <!-- displays current rows student name, that students status and any comment associated with that status -->
+					<td class="student_col">
+						<a href="user.php?id=21&amp;name=Asher">Asher S</a>
+					</td>
+					<td class="student_col_buttons">
+						                    
+                        <!-- IF CHECK OUT IS NEAR -->
+										<form action="index.php" method="post">
+							<input type="submit" value="P" class="p_button tablebutton" name="present_button" />
+							<input type="hidden" name="present_bstudent" value="21" />
+						</form>
+						                            <form action="index.php" method="post">
+							<input class="tablebutton" type="submit" value="A" name="Absent" />
+							<input type="hidden" name="absent_student" value="21" />
+                                </form>
+												<!-- Late button with time input next to it -->
+                            <form action="index.php" method="post">
+							<input class="tablebutton l_button" id="latebutton" type="submit" value="Late" name="Late" />
+							<input type="input" name="late_time" placeholder="Expected" class="late_time ui-timepicker-input" autocomplete="off" />
+							<input type="hidden" name="late_student" value="21" />
+                                </form>
+						
+						
+					</td>
+					<td class="status_col">Not Checked In 						</td>
+				</tr>
+	  
+        
+                        <tr class="Status_Red">
+                    
+                                        
+					<td class="select_col">
+						<!-- checkbox that gives student data to the form at the top -->
+						<input type="checkbox" name="person[]" id="78" value="78" form="main" class="c_box" />
+	
+					</td>
+					            <!-- displays current rows student name, that students status and any comment associated with that status -->
+					<td class="student_col">
+						<a href="user.php?id=78&amp;name=Aster">Aster S</a>
+					</td>
+					<td class="student_col_buttons">
+						                    
+                        <!-- IF CHECK OUT IS NEAR -->
+										<form action="index.php" method="post">
+							<input type="submit" value="P" class="p_button tablebutton" name="present_button" />
+							<input type="hidden" name="present_bstudent" value="78" />
+						</form>
+						                            <form action="index.php" method="post">
+							<input class="tablebutton" type="submit" value="A" name="Absent" />
+							<input type="hidden" name="absent_student" value="78" />
+                                </form>
+												<!-- Late button with time input next to it -->
+                            <form action="index.php" method="post">
+							<input class="tablebutton l_button" id="latebutton" type="submit" value="Late" name="Late" />
+							<input type="input" name="late_time" placeholder="Expected" class="late_time ui-timepicker-input" autocomplete="off" />
+							<input type="hidden" name="late_student" value="78" />
+                                </form>
+						
+						
+					</td>
+					<td class="status_col">Not Checked In 						</td>
+				</tr>
+	  
+        
+                        <tr class="Status_Red">
+                    
+                                        
+					<td class="select_col">
+						<!-- checkbox that gives student data to the form at the top -->
+						<input type="checkbox" name="person[]" id="31" value="31" form="main" class="c_box" />
+	
+					</td>
+					            <!-- displays current rows student name, that students status and any comment associated with that status -->
+					<td class="student_col">
+						<a href="user.php?id=31&amp;name=Audrey">Audrey W</a>
+					</td>
+					<td class="student_col_buttons">
+						                    
+                        <!-- IF CHECK OUT IS NEAR -->
+										<form action="index.php" method="post">
+							<input type="submit" value="P" class="p_button tablebutton" name="present_button" />
+							<input type="hidden" name="present_bstudent" value="31" />
+						</form>
+						                            <form action="index.php" method="post">
+							<input class="tablebutton" type="submit" value="A" name="Absent" />
+							<input type="hidden" name="absent_student" value="31" />
+                                </form>
+												<!-- Late button with time input next to it -->
+                            <form action="index.php" method="post">
+							<input class="tablebutton l_button" id="latebutton" type="submit" value="Late" name="Late" />
+							<input type="input" name="late_time" placeholder="Expected" class="late_time ui-timepicker-input" autocomplete="off" />
+							<input type="hidden" name="late_student" value="31" />
+                                </form>
+						
+						
+					</td>
+					<td class="status_col">Not Checked In 						</td>
+				</tr>
+	  
+        
+                        <tr class="Status_Red">
+                    
+                                        
+					<td class="select_col">
+						<!-- checkbox that gives student data to the form at the top -->
+						<input type="checkbox" name="person[]" id="85" value="85" form="main" class="c_box" />
+	
+					</td>
+					            <!-- displays current rows student name, that students status and any comment associated with that status -->
+					<td class="student_col">
+						<a href="user.php?id=85&amp;name=Beck">Beck M</a>
+					</td>
+					<td class="student_col_buttons">
+						                    
+                        <!-- IF CHECK OUT IS NEAR -->
+										<form action="index.php" method="post">
+							<input type="submit" value="P" class="p_button tablebutton" name="present_button" />
+							<input type="hidden" name="present_bstudent" value="85" />
+						</form>
+						                            <form action="index.php" method="post">
+							<input class="tablebutton" type="submit" value="A" name="Absent" />
+							<input type="hidden" name="absent_student" value="85" />
+                                </form>
+												<!-- Late button with time input next to it -->
+                            <form action="index.php" method="post">
+							<input class="tablebutton l_button" id="latebutton" type="submit" value="Late" name="Late" />
+							<input type="input" name="late_time" placeholder="Expected" class="late_time ui-timepicker-input" autocomplete="off" />
+							<input type="hidden" name="late_student" value="85" />
+                                </form>
+						
+						
+					</td>
+					<td class="status_col">Not Checked In 						</td>
+				</tr>
+	  
+        
+                        <tr class="Status_Red">
+                    
+                                        
+					<td class="select_col">
+						<!-- checkbox that gives student data to the form at the top -->
+						<input type="checkbox" name="person[]" id="37" value="37" form="main" class="c_box" />
+	
+					</td>
+					            <!-- displays current rows student name, that students status and any comment associated with that status -->
+					<td class="student_col">
+						<a href="user.php?id=37&amp;name=Bryce">Bryce P</a>
+					</td>
+					<td class="student_col_buttons">
+						                    
+                        <!-- IF CHECK OUT IS NEAR -->
+										<form action="index.php" method="post">
+							<input type="submit" value="P" class="p_button tablebutton" name="present_button" />
+							<input type="hidden" name="present_bstudent" value="37" />
+						</form>
+						                            <form action="index.php" method="post">
+							<input class="tablebutton" type="submit" value="A" name="Absent" />
+							<input type="hidden" name="absent_student" value="37" />
+                                </form>
+												<!-- Late button with time input next to it -->
+                            <form action="index.php" method="post">
+							<input class="tablebutton l_button" id="latebutton" type="submit" value="Late" name="Late" />
+							<input type="input" name="late_time" placeholder="Expected" class="late_time ui-timepicker-input" autocomplete="off" />
+							<input type="hidden" name="late_student" value="37" />
+                                </form>
+						
+						
+					</td>
+					<td class="status_col">Not Checked In 						</td>
+				</tr>
+	  
+        
+                        <tr class="Status_Red">
+                    
+                                        
+					<td class="select_col">
+						<!-- checkbox that gives student data to the form at the top -->
+						<input type="checkbox" name="person[]" id="77" value="77" form="main" class="c_box" />
+	
+					</td>
+					            <!-- displays current rows student name, that students status and any comment associated with that status -->
+					<td class="student_col">
+						<a href="user.php?id=77&amp;name=Cory">Cory S</a>
+					</td>
+					<td class="student_col_buttons">
+						                    
+                        <!-- IF CHECK OUT IS NEAR -->
+										<form action="index.php" method="post">
+							<input type="submit" value="P" class="p_button tablebutton" name="present_button" />
+							<input type="hidden" name="present_bstudent" value="77" />
+						</form>
+						                            <form action="index.php" method="post">
+							<input class="tablebutton" type="submit" value="A" name="Absent" />
+							<input type="hidden" name="absent_student" value="77" />
+                                </form>
+												<!-- Late button with time input next to it -->
+                            <form action="index.php" method="post">
+							<input class="tablebutton l_button" id="latebutton" type="submit" value="Late" name="Late" />
+							<input type="input" name="late_time" placeholder="Expected" class="late_time ui-timepicker-input" autocomplete="off" />
+							<input type="hidden" name="late_student" value="77" />
+                                </form>
+						
+						
+					</td>
+					<td class="status_col">Not Checked In 						</td>
+				</tr>
+	  
+        
+                        <tr class="Status_Red">
+                    
+                                        
+					<td class="select_col">
+						<!-- checkbox that gives student data to the form at the top -->
+						<input type="checkbox" name="person[]" id="57" value="57" form="main" class="c_box" />
+	
+					</td>
+					            <!-- displays current rows student name, that students status and any comment associated with that status -->
+					<td class="student_col">
+						<a href="user.php?id=57&amp;name=David">David H</a>
+					</td>
+					<td class="student_col_buttons">
+						                    
+                        <!-- IF CHECK OUT IS NEAR -->
+										<form action="index.php" method="post">
+							<input type="submit" value="P" class="p_button tablebutton" name="present_button" />
+							<input type="hidden" name="present_bstudent" value="57" />
+						</form>
+						                            <form action="index.php" method="post">
+							<input class="tablebutton" type="submit" value="A" name="Absent" />
+							<input type="hidden" name="absent_student" value="57" />
+                                </form>
+												<!-- Late button with time input next to it -->
+                            <form action="index.php" method="post">
+							<input class="tablebutton l_button" id="latebutton" type="submit" value="Late" name="Late" />
+							<input type="input" name="late_time" placeholder="Expected" class="late_time ui-timepicker-input" autocomplete="off" />
+							<input type="hidden" name="late_student" value="57" />
+                                </form>
+						
+						
+					</td>
+					<td class="status_col">Not Checked In 						</td>
+				</tr>
+	  
+        
+                        <tr class="Status_Red">
+                    
+                                        
+					<td class="select_col">
+						<!-- checkbox that gives student data to the form at the top -->
+						<input type="checkbox" name="person[]" id="30" value="30" form="main" class="c_box" />
+	
+					</td>
+					            <!-- displays current rows student name, that students status and any comment associated with that status -->
+					<td class="student_col">
+						<a href="user.php?id=30&amp;name=Easton">Easton K</a>
+					</td>
+					<td class="student_col_buttons">
+						                    
+                        <!-- IF CHECK OUT IS NEAR -->
+										<form action="index.php" method="post">
+							<input type="submit" value="P" class="p_button tablebutton" name="present_button" />
+							<input type="hidden" name="present_bstudent" value="30" />
+						</form>
+						                            <form action="index.php" method="post">
+							<input class="tablebutton" type="submit" value="A" name="Absent" />
+							<input type="hidden" name="absent_student" value="30" />
+                                </form>
+												<!-- Late button with time input next to it -->
+                            <form action="index.php" method="post">
+							<input class="tablebutton l_button" id="latebutton" type="submit" value="Late" name="Late" />
+							<input type="input" name="late_time" placeholder="Expected" class="late_time ui-timepicker-input" autocomplete="off" />
+							<input type="hidden" name="late_student" value="30" />
+                                </form>
+						
+						
+					</td>
+					<td class="status_col">Not Checked In 						</td>
+				</tr>
+	  
+        
+                        <tr class="Status_Red">
+                    
+                                        
+					<td class="select_col">
+						<!-- checkbox that gives student data to the form at the top -->
+						<input type="checkbox" name="person[]" id="58" value="58" form="main" class="c_box" />
+	
+					</td>
+					            <!-- displays current rows student name, that students status and any comment associated with that status -->
+					<td class="student_col">
+						<a href="user.php?id=58&amp;name=Eli">Eli K</a>
+					</td>
+					<td class="student_col_buttons">
+						                    
+                        <!-- IF CHECK OUT IS NEAR -->
+										<form action="index.php" method="post">
+							<input type="submit" value="P" class="p_button tablebutton" name="present_button" />
+							<input type="hidden" name="present_bstudent" value="58" />
+						</form>
+						                            <form action="index.php" method="post">
+							<input class="tablebutton" type="submit" value="A" name="Absent" />
+							<input type="hidden" name="absent_student" value="58" />
+                                </form>
+												<!-- Late button with time input next to it -->
+                            <form action="index.php" method="post">
+							<input class="tablebutton l_button" id="latebutton" type="submit" value="Late" name="Late" />
+							<input type="input" name="late_time" placeholder="Expected" class="late_time ui-timepicker-input" autocomplete="off" />
+							<input type="hidden" name="late_student" value="58" />
+                                </form>
+						
+						
+					</td>
+					<td class="status_col">Not Checked In 						</td>
+				</tr>
+	  
+        
+                        <tr class="Status_Red">
+                    
+                                        
+					<td class="select_col">
+						<!-- checkbox that gives student data to the form at the top -->
+						<input type="checkbox" name="person[]" id="20" value="20" form="main" class="c_box" />
+	
+					</td>
+					            <!-- displays current rows student name, that students status and any comment associated with that status -->
+					<td class="student_col">
+						<a href="user.php?id=20&amp;name=Elijah">Elijah N</a>
+					</td>
+					<td class="student_col_buttons">
+						                    
+                        <!-- IF CHECK OUT IS NEAR -->
+										<form action="index.php" method="post">
+							<input type="submit" value="P" class="p_button tablebutton" name="present_button" />
+							<input type="hidden" name="present_bstudent" value="20" />
+						</form>
+						                            <form action="index.php" method="post">
+							<input class="tablebutton" type="submit" value="A" name="Absent" />
+							<input type="hidden" name="absent_student" value="20" />
+                                </form>
+												<!-- Late button with time input next to it -->
+                            <form action="index.php" method="post">
+							<input class="tablebutton l_button" id="latebutton" type="submit" value="Late" name="Late" />
+							<input type="input" name="late_time" placeholder="Expected" class="late_time ui-timepicker-input" autocomplete="off" />
+							<input type="hidden" name="late_student" value="20" />
+                                </form>
+						
+						
+					</td>
+					<td class="status_col">Not Checked In 						</td>
+				</tr>
+	  
+        
+                        <tr class="Status_Red">
+                    
+                                        
+					<td class="select_col">
+						<!-- checkbox that gives student data to the form at the top -->
+						<input type="checkbox" name="person[]" id="42" value="42" form="main" class="c_box" />
+	
+					</td>
+					            <!-- displays current rows student name, that students status and any comment associated with that status -->
+					<td class="student_col">
+						<a href="user.php?id=42&amp;name=Finn">Finn P</a>
+					</td>
+					<td class="student_col_buttons">
+						                    
+                        <!-- IF CHECK OUT IS NEAR -->
+										<form action="index.php" method="post">
+							<input type="submit" value="P" class="p_button tablebutton" name="present_button" />
+							<input type="hidden" name="present_bstudent" value="42" />
+						</form>
+						                            <form action="index.php" method="post">
+							<input class="tablebutton" type="submit" value="A" name="Absent" />
+							<input type="hidden" name="absent_student" value="42" />
+                                </form>
+												<!-- Late button with time input next to it -->
+                            <form action="index.php" method="post">
+							<input class="tablebutton l_button" id="latebutton" type="submit" value="Late" name="Late" />
+							<input type="input" name="late_time" placeholder="Expected" class="late_time ui-timepicker-input" autocomplete="off" />
+							<input type="hidden" name="late_student" value="42" />
+                                </form>
+						
+						
+					</td>
+					<td class="status_col">Not Checked In 						</td>
+				</tr>
+	  
+        
+                        <tr class="Status_Red">
+                    
+                                        
+					<td class="select_col">
+						<!-- checkbox that gives student data to the form at the top -->
+						<input type="checkbox" name="person[]" id="59" value="59" form="main" class="c_box" />
+	
+					</td>
+					            <!-- displays current rows student name, that students status and any comment associated with that status -->
+					<td class="student_col">
+						<a href="user.php?id=59&amp;name=Graeme">Graeme S</a>
+					</td>
+					<td class="student_col_buttons">
+						                    
+                        <!-- IF CHECK OUT IS NEAR -->
+										<form action="index.php" method="post">
+							<input type="submit" value="P" class="p_button tablebutton" name="present_button" />
+							<input type="hidden" name="present_bstudent" value="59" />
+						</form>
+						                            <form action="index.php" method="post">
+							<input class="tablebutton" type="submit" value="A" name="Absent" />
+							<input type="hidden" name="absent_student" value="59" />
+                                </form>
+												<!-- Late button with time input next to it -->
+                            <form action="index.php" method="post">
+							<input class="tablebutton l_button" id="latebutton" type="submit" value="Late" name="Late" />
+							<input type="input" name="late_time" placeholder="Expected" class="late_time ui-timepicker-input" autocomplete="off" />
+							<input type="hidden" name="late_student" value="59" />
+                                </form>
+						
+						
+					</td>
+					<td class="status_col">Not Checked In 						</td>
+				</tr>
+	  
+        
+                        <tr class="Status_Red">
+                    
+                                        
+					<td class="select_col">
+						<!-- checkbox that gives student data to the form at the top -->
+						<input type="checkbox" name="person[]" id="39" value="39" form="main" class="c_box" />
+	
+					</td>
+					            <!-- displays current rows student name, that students status and any comment associated with that status -->
+					<td class="student_col">
+						<a href="user.php?id=39&amp;name=Grant">Grant S</a>
+					</td>
+					<td class="student_col_buttons">
+						                    
+                        <!-- IF CHECK OUT IS NEAR -->
+										<form action="index.php" method="post">
+							<input type="submit" value="P" class="p_button tablebutton" name="present_button" />
+							<input type="hidden" name="present_bstudent" value="39" />
+						</form>
+						                            <form action="index.php" method="post">
+							<input class="tablebutton" type="submit" value="A" name="Absent" />
+							<input type="hidden" name="absent_student" value="39" />
+                                </form>
+												<!-- Late button with time input next to it -->
+                            <form action="index.php" method="post">
+							<input class="tablebutton l_button" id="latebutton" type="submit" value="Late" name="Late" />
+							<input type="input" name="late_time" placeholder="Expected" class="late_time ui-timepicker-input" autocomplete="off" />
+							<input type="hidden" name="late_student" value="39" />
+                                </form>
+						
+						
+					</td>
+					<td class="status_col">Not Checked In 						</td>
+				</tr>
+	  
+        
+                        <tr class="Status_Red">
+                    
+                                        
+					<td class="select_col">
+						<!-- checkbox that gives student data to the form at the top -->
+						<input type="checkbox" name="person[]" id="60" value="60" form="main" class="c_box" />
+	
+					</td>
+					            <!-- displays current rows student name, that students status and any comment associated with that status -->
+					<td class="student_col">
+						<a href="user.php?id=60&amp;name=Hazel">Hazel D</a>
+					</td>
+					<td class="student_col_buttons">
+						                    
+                        <!-- IF CHECK OUT IS NEAR -->
+										<form action="index.php" method="post">
+							<input type="submit" value="P" class="p_button tablebutton" name="present_button" />
+							<input type="hidden" name="present_bstudent" value="60" />
+						</form>
+						                            <form action="index.php" method="post">
+							<input class="tablebutton" type="submit" value="A" name="Absent" />
+							<input type="hidden" name="absent_student" value="60" />
+                                </form>
+												<!-- Late button with time input next to it -->
+                            <form action="index.php" method="post">
+							<input class="tablebutton l_button" id="latebutton" type="submit" value="Late" name="Late" />
+							<input type="input" name="late_time" placeholder="Expected" class="late_time ui-timepicker-input" autocomplete="off" />
+							<input type="hidden" name="late_student" value="60" />
+                                </form>
+						
+						
+					</td>
+					<td class="status_col">Not Checked In 						</td>
+				</tr>
+	  
+        
+                        <tr class="Status_Red">
+                    
+                                        
+					<td class="select_col">
+						<!-- checkbox that gives student data to the form at the top -->
+						<input type="checkbox" name="person[]" id="41" value="41" form="main" class="c_box" />
+	
+					</td>
+					            <!-- displays current rows student name, that students status and any comment associated with that status -->
+					<td class="student_col">
+						<a href="user.php?id=41&amp;name=Isaac">Isaac R</a>
+					</td>
+					<td class="student_col_buttons">
+						                    
+                        <!-- IF CHECK OUT IS NEAR -->
+										<form action="index.php" method="post">
+							<input type="submit" value="P" class="p_button tablebutton" name="present_button" />
+							<input type="hidden" name="present_bstudent" value="41" />
+						</form>
+						                            <form action="index.php" method="post">
+							<input class="tablebutton" type="submit" value="A" name="Absent" />
+							<input type="hidden" name="absent_student" value="41" />
+                                </form>
+												<!-- Late button with time input next to it -->
+                            <form action="index.php" method="post">
+							<input class="tablebutton l_button" id="latebutton" type="submit" value="Late" name="Late" />
+							<input type="input" name="late_time" placeholder="Expected" class="late_time ui-timepicker-input" autocomplete="off" />
+							<input type="hidden" name="late_student" value="41" />
+                                </form>
+						
+						
+					</td>
+					<td class="status_col">Not Checked In 						</td>
+				</tr>
+	  
+        
+                        <tr class="Status_Red">
+                    
+                                        
+					<td class="select_col">
+						<!-- checkbox that gives student data to the form at the top -->
+						<input type="checkbox" name="person[]" id="19" value="19" form="main" class="c_box" />
+	
+					</td>
+					            <!-- displays current rows student name, that students status and any comment associated with that status -->
+					<td class="student_col">
+						<a href="user.php?id=19&amp;name=Isabella">Isabella M</a>
+					</td>
+					<td class="student_col_buttons">
+						                    
+                        <!-- IF CHECK OUT IS NEAR -->
+										<form action="index.php" method="post">
+							<input type="submit" value="P" class="p_button tablebutton" name="present_button" />
+							<input type="hidden" name="present_bstudent" value="19" />
+						</form>
+						                            <form action="index.php" method="post">
+							<input class="tablebutton" type="submit" value="A" name="Absent" />
+							<input type="hidden" name="absent_student" value="19" />
+                                </form>
+												<!-- Late button with time input next to it -->
+                            <form action="index.php" method="post">
+							<input class="tablebutton l_button" id="latebutton" type="submit" value="Late" name="Late" />
+							<input type="input" name="late_time" placeholder="Expected" class="late_time ui-timepicker-input" autocomplete="off" />
+							<input type="hidden" name="late_student" value="19" />
+                                </form>
+						
+						
+					</td>
+					<td class="status_col">Not Checked In 						</td>
+				</tr>
+	  
+        
+                        <tr class="Status_Red">
+                    
+                                        
+					<td class="select_col">
+						<!-- checkbox that gives student data to the form at the top -->
+						<input type="checkbox" name="person[]" id="36" value="36" form="main" class="c_box" />
+	
+					</td>
+					            <!-- displays current rows student name, that students status and any comment associated with that status -->
+					<td class="student_col">
+						<a href="user.php?id=36&amp;name=Jack">Jack H</a>
+					</td>
+					<td class="student_col_buttons">
+						                    
+                        <!-- IF CHECK OUT IS NEAR -->
+										<form action="index.php" method="post">
+							<input type="submit" value="P" class="p_button tablebutton" name="present_button" />
+							<input type="hidden" name="present_bstudent" value="36" />
+						</form>
+						                            <form action="index.php" method="post">
+							<input class="tablebutton" type="submit" value="A" name="Absent" />
+							<input type="hidden" name="absent_student" value="36" />
+                                </form>
+												<!-- Late button with time input next to it -->
+                            <form action="index.php" method="post">
+							<input class="tablebutton l_button" id="latebutton" type="submit" value="Late" name="Late" />
+							<input type="input" name="late_time" placeholder="Expected" class="late_time ui-timepicker-input" autocomplete="off" />
+							<input type="hidden" name="late_student" value="36" />
+                                </form>
+						
+						
+					</td>
+					<td class="status_col">Not Checked In 						</td>
+				</tr>
+	  
+        
+                        <tr class="Status_Red">
+                    
+                                        
+					<td class="select_col">
+						<!-- checkbox that gives student data to the form at the top -->
+						<input type="checkbox" name="person[]" id="27" value="27" form="main" class="c_box" />
+	
+					</td>
+					            <!-- displays current rows student name, that students status and any comment associated with that status -->
+					<td class="student_col">
+						<a href="user.php?id=27&amp;name=Jacob">Jacob K</a>
+					</td>
+					<td class="student_col_buttons">
+						                    
+                        <!-- IF CHECK OUT IS NEAR -->
+										<form action="index.php" method="post">
+							<input type="submit" value="P" class="p_button tablebutton" name="present_button" />
+							<input type="hidden" name="present_bstudent" value="27" />
+						</form>
+						                            <form action="index.php" method="post">
+							<input class="tablebutton" type="submit" value="A" name="Absent" />
+							<input type="hidden" name="absent_student" value="27" />
+                                </form>
+												<!-- Late button with time input next to it -->
+                            <form action="index.php" method="post">
+							<input class="tablebutton l_button" id="latebutton" type="submit" value="Late" name="Late" />
+							<input type="input" name="late_time" placeholder="Expected" class="late_time ui-timepicker-input" autocomplete="off" />
+							<input type="hidden" name="late_student" value="27" />
+                                </form>
+						
+						
+					</td>
+					<td class="status_col">Not Checked In 						</td>
+				</tr>
+	  
+        
+                        <tr class="Status_Red">
+                    
+                                        
+					<td class="select_col">
+						<!-- checkbox that gives student data to the form at the top -->
+						<input type="checkbox" name="person[]" id="86" value="86" form="main" class="c_box" />
+	
+					</td>
+					            <!-- displays current rows student name, that students status and any comment associated with that status -->
+					<td class="student_col">
+						<a href="user.php?id=86&amp;name=Jasmin">Jasmin C</a>
+					</td>
+					<td class="student_col_buttons">
+						                    
+                        <!-- IF CHECK OUT IS NEAR -->
+										<form action="index.php" method="post">
+							<input type="submit" value="P" class="p_button tablebutton" name="present_button" />
+							<input type="hidden" name="present_bstudent" value="86" />
+						</form>
+						                            <form action="index.php" method="post">
+							<input class="tablebutton" type="submit" value="A" name="Absent" />
+							<input type="hidden" name="absent_student" value="86" />
+                                </form>
+												<!-- Late button with time input next to it -->
+                            <form action="index.php" method="post">
+							<input class="tablebutton l_button" id="latebutton" type="submit" value="Late" name="Late" />
+							<input type="input" name="late_time" placeholder="Expected" class="late_time ui-timepicker-input" autocomplete="off" />
+							<input type="hidden" name="late_student" value="86" />
+                                </form>
+						
+						
+					</td>
+					<td class="status_col">Not Checked In 						</td>
+				</tr>
+	  
+        
+                        <tr class="Status_Red">
+                    
+                                        
+					<td class="select_col">
+						<!-- checkbox that gives student data to the form at the top -->
+						<input type="checkbox" name="person[]" id="35" value="35" form="main" class="c_box" />
+	
+					</td>
+					            <!-- displays current rows student name, that students status and any comment associated with that status -->
+					<td class="student_col">
+						<a href="user.php?id=35&amp;name=Jessie">Jessie B</a>
+					</td>
+					<td class="student_col_buttons">
+						                    
+                        <!-- IF CHECK OUT IS NEAR -->
+										<form action="index.php" method="post">
+							<input type="submit" value="P" class="p_button tablebutton" name="present_button" />
+							<input type="hidden" name="present_bstudent" value="35" />
+						</form>
+						                            <form action="index.php" method="post">
+							<input class="tablebutton" type="submit" value="A" name="Absent" />
+							<input type="hidden" name="absent_student" value="35" />
+                                </form>
+												<!-- Late button with time input next to it -->
+                            <form action="index.php" method="post">
+							<input class="tablebutton l_button" id="latebutton" type="submit" value="Late" name="Late" />
+							<input type="input" name="late_time" placeholder="Expected" class="late_time ui-timepicker-input" autocomplete="off" />
+							<input type="hidden" name="late_student" value="35" />
+                                </form>
+						
+						
+					</td>
+					<td class="status_col">Not Checked In 						</td>
+				</tr>
+	  
+        
+                        <tr class="Status_Red">
+                    
+                                        
+					<td class="select_col">
+						<!-- checkbox that gives student data to the form at the top -->
+						<input type="checkbox" name="person[]" id="48" value="48" form="main" class="c_box" />
+	
+					</td>
+					            <!-- displays current rows student name, that students status and any comment associated with that status -->
+					<td class="student_col">
+						<a href="user.php?id=48&amp;name=Jon">Jon B</a>
+					</td>
+					<td class="student_col_buttons">
+						                    
+                        <!-- IF CHECK OUT IS NEAR -->
+										<form action="index.php" method="post">
+							<input type="submit" value="P" class="p_button tablebutton" name="present_button" />
+							<input type="hidden" name="present_bstudent" value="48" />
+						</form>
+						                            <form action="index.php" method="post">
+							<input class="tablebutton" type="submit" value="A" name="Absent" />
+							<input type="hidden" name="absent_student" value="48" />
+                                </form>
+												<!-- Late button with time input next to it -->
+                            <form action="index.php" method="post">
+							<input class="tablebutton l_button" id="latebutton" type="submit" value="Late" name="Late" />
+							<input type="input" name="late_time" placeholder="Expected" class="late_time ui-timepicker-input" autocomplete="off" />
+							<input type="hidden" name="late_student" value="48" />
+                                </form>
+						
+						
+					</td>
+					<td class="status_col">Not Checked In 						</td>
+				</tr>
+	  
+        
+                        <tr class="Status_Red">
+                    
+                                        
+					<td class="select_col">
+						<!-- checkbox that gives student data to the form at the top -->
+						<input type="checkbox" name="person[]" id="18" value="18" form="main" class="c_box" />
+	
+					</td>
+					            <!-- displays current rows student name, that students status and any comment associated with that status -->
+					<td class="student_col">
+						<a href="user.php?id=18&amp;name=Joshua">Joshua D</a>
+					</td>
+					<td class="student_col_buttons">
+						                    
+                        <!-- IF CHECK OUT IS NEAR -->
+										<form action="index.php" method="post">
+							<input type="submit" value="P" class="p_button tablebutton" name="present_button" />
+							<input type="hidden" name="present_bstudent" value="18" />
+						</form>
+						                            <form action="index.php" method="post">
+							<input class="tablebutton" type="submit" value="A" name="Absent" />
+							<input type="hidden" name="absent_student" value="18" />
+                                </form>
+												<!-- Late button with time input next to it -->
+                            <form action="index.php" method="post">
+							<input class="tablebutton l_button" id="latebutton" type="submit" value="Late" name="Late" />
+							<input type="input" name="late_time" placeholder="Expected" class="late_time ui-timepicker-input" autocomplete="off" />
+							<input type="hidden" name="late_student" value="18" />
+                                </form>
+						
+						
+					</td>
+					<td class="status_col">Not Checked In 						</td>
+				</tr>
+	  
+        
+                        <tr class="Status_Red">
+                    
+                                        
+					<td class="select_col">
+						<!-- checkbox that gives student data to the form at the top -->
+						<input type="checkbox" name="person[]" id="61" value="61" form="main" class="c_box" />
+	
+					</td>
+					            <!-- displays current rows student name, that students status and any comment associated with that status -->
+					<td class="student_col">
+						<a href="user.php?id=61&amp;name=Joy">Joy B</a>
+					</td>
+					<td class="student_col_buttons">
+						                    
+                        <!-- IF CHECK OUT IS NEAR -->
+										<form action="index.php" method="post">
+							<input type="submit" value="P" class="p_button tablebutton" name="present_button" />
+							<input type="hidden" name="present_bstudent" value="61" />
+						</form>
+						                            <form action="index.php" method="post">
+							<input class="tablebutton" type="submit" value="A" name="Absent" />
+							<input type="hidden" name="absent_student" value="61" />
+                                </form>
+												<!-- Late button with time input next to it -->
+                            <form action="index.php" method="post">
+							<input class="tablebutton l_button" id="latebutton" type="submit" value="Late" name="Late" />
+							<input type="input" name="late_time" placeholder="Expected" class="late_time ui-timepicker-input" autocomplete="off" />
+							<input type="hidden" name="late_student" value="61" />
+                                </form>
+						
+						
+					</td>
+					<td class="status_col">Not Checked In 						</td>
+				</tr>
+	  
+        
+                        <tr class="Status_Red">
+                    
+                                        
+					<td class="select_col">
+						<!-- checkbox that gives student data to the form at the top -->
+						<input type="checkbox" name="person[]" id="80" value="80" form="main" class="c_box" />
+	
+					</td>
+					            <!-- displays current rows student name, that students status and any comment associated with that status -->
+					<td class="student_col">
+						<a href="user.php?id=80&amp;name=Justin">Justin G</a>
+					</td>
+					<td class="student_col_buttons">
+						                    
+                        <!-- IF CHECK OUT IS NEAR -->
+										<form action="index.php" method="post">
+							<input type="submit" value="P" class="p_button tablebutton" name="present_button" />
+							<input type="hidden" name="present_bstudent" value="80" />
+						</form>
+						                            <form action="index.php" method="post">
+							<input class="tablebutton" type="submit" value="A" name="Absent" />
+							<input type="hidden" name="absent_student" value="80" />
+                                </form>
+												<!-- Late button with time input next to it -->
+                            <form action="index.php" method="post">
+							<input class="tablebutton l_button" id="latebutton" type="submit" value="Late" name="Late" />
+							<input type="input" name="late_time" placeholder="Expected" class="late_time ui-timepicker-input" autocomplete="off" />
+							<input type="hidden" name="late_student" value="80" />
+                                </form>
+						
+						
+					</td>
+					<td class="status_col">Not Checked In 						</td>
+				</tr>
+	  
+        
+                        <tr class="Status_Red">
+                    
+                                        
+					<td class="select_col">
+						<!-- checkbox that gives student data to the form at the top -->
+						<input type="checkbox" name="person[]" id="26" value="26" form="main" class="c_box" />
+	
+					</td>
+					            <!-- displays current rows student name, that students status and any comment associated with that status -->
+					<td class="student_col">
+						<a href="user.php?id=26&amp;name=Kayleigh">Kayleigh B</a>
+					</td>
+					<td class="student_col_buttons">
+						                    
+                        <!-- IF CHECK OUT IS NEAR -->
+										<form action="index.php" method="post">
+							<input type="submit" value="P" class="p_button tablebutton" name="present_button" />
+							<input type="hidden" name="present_bstudent" value="26" />
+						</form>
+						                            <form action="index.php" method="post">
+							<input class="tablebutton" type="submit" value="A" name="Absent" />
+							<input type="hidden" name="absent_student" value="26" />
+                                </form>
+												<!-- Late button with time input next to it -->
+                            <form action="index.php" method="post">
+							<input class="tablebutton l_button" id="latebutton" type="submit" value="Late" name="Late" />
+							<input type="input" name="late_time" placeholder="Expected" class="late_time ui-timepicker-input" autocomplete="off" />
+							<input type="hidden" name="late_student" value="26" />
+                                </form>
+						
+						
+					</td>
+					<td class="status_col">Not Checked In 						</td>
+				</tr>
+	  
+        
+                        <tr class="Status_Red">
+                    
+                                        
+					<td class="select_col">
+						<!-- checkbox that gives student data to the form at the top -->
+						<input type="checkbox" name="person[]" id="84" value="84" form="main" class="c_box" />
+	
+					</td>
+					            <!-- displays current rows student name, that students status and any comment associated with that status -->
+					<td class="student_col">
+						<a href="user.php?id=84&amp;name=Kyle">Kyle H</a>
+					</td>
+					<td class="student_col_buttons">
+						                    
+                        <!-- IF CHECK OUT IS NEAR -->
+										<form action="index.php" method="post">
+							<input type="submit" value="P" class="p_button tablebutton" name="present_button" />
+							<input type="hidden" name="present_bstudent" value="84" />
+						</form>
+						                            <form action="index.php" method="post">
+							<input class="tablebutton" type="submit" value="A" name="Absent" />
+							<input type="hidden" name="absent_student" value="84" />
+                                </form>
+												<!-- Late button with time input next to it -->
+                            <form action="index.php" method="post">
+							<input class="tablebutton l_button" id="latebutton" type="submit" value="Late" name="Late" />
+							<input type="input" name="late_time" placeholder="Expected" class="late_time ui-timepicker-input" autocomplete="off" />
+							<input type="hidden" name="late_student" value="84" />
+                                </form>
+						
+						
+					</td>
+					<td class="status_col">Not Checked In 						</td>
+				</tr>
+	  
+        
+                        <tr class="Status_Red">
+                    
+                                        
+					<td class="select_col">
+						<!-- checkbox that gives student data to the form at the top -->
+						<input type="checkbox" name="person[]" id="82" value="82" form="main" class="c_box" />
+	
+					</td>
+					            <!-- displays current rows student name, that students status and any comment associated with that status -->
+					<td class="student_col">
+						<a href="user.php?id=82&amp;name=Madeleine">Madeleine R</a>
+					</td>
+					<td class="student_col_buttons">
+						                    
+                        <!-- IF CHECK OUT IS NEAR -->
+										<form action="index.php" method="post">
+							<input type="submit" value="P" class="p_button tablebutton" name="present_button" />
+							<input type="hidden" name="present_bstudent" value="82" />
+						</form>
+						                            <form action="index.php" method="post">
+							<input class="tablebutton" type="submit" value="A" name="Absent" />
+							<input type="hidden" name="absent_student" value="82" />
+                                </form>
+												<!-- Late button with time input next to it -->
+                            <form action="index.php" method="post">
+							<input class="tablebutton l_button" id="latebutton" type="submit" value="Late" name="Late" />
+							<input type="input" name="late_time" placeholder="Expected" class="late_time ui-timepicker-input" autocomplete="off" />
+							<input type="hidden" name="late_student" value="82" />
+                                </form>
+						
+						
+					</td>
+					<td class="status_col">Not Checked In 						</td>
+				</tr>
+	  
+        
+                        <tr class="Status_Red">
+                    
+                                        
+					<td class="select_col">
+						<!-- checkbox that gives student data to the form at the top -->
+						<input type="checkbox" name="person[]" id="14" value="14" form="main" class="c_box" />
+	
+					</td>
+					            <!-- displays current rows student name, that students status and any comment associated with that status -->
+					<td class="student_col">
+						<a href="user.php?id=14&amp;name=Margaux">Margaux B</a>
+					</td>
+					<td class="student_col_buttons">
+						                    
+                        <!-- IF CHECK OUT IS NEAR -->
+										<form action="index.php" method="post">
+							<input type="submit" value="P" class="p_button tablebutton" name="present_button" />
+							<input type="hidden" name="present_bstudent" value="14" />
+						</form>
+						                            <form action="index.php" method="post">
+							<input class="tablebutton" type="submit" value="A" name="Absent" />
+							<input type="hidden" name="absent_student" value="14" />
+                                </form>
+												<!-- Late button with time input next to it -->
+                            <form action="index.php" method="post">
+							<input class="tablebutton l_button" id="latebutton" type="submit" value="Late" name="Late" />
+							<input type="input" name="late_time" placeholder="Expected" class="late_time ui-timepicker-input" autocomplete="off" />
+							<input type="hidden" name="late_student" value="14" />
+                                </form>
+						
+						
+					</td>
+					<td class="status_col">Not Checked In 						</td>
+				</tr>
+	  
+        
+                        <tr class="Status_Red">
+                    
+                                        
+					<td class="select_col">
+						<!-- checkbox that gives student data to the form at the top -->
+						<input type="checkbox" name="person[]" id="33" value="33" form="main" class="c_box" />
+	
+					</td>
+					            <!-- displays current rows student name, that students status and any comment associated with that status -->
+					<td class="student_col">
+						<a href="user.php?id=33&amp;name=Marissa">Marissa K</a>
+					</td>
+					<td class="student_col_buttons">
+						                    
+                        <!-- IF CHECK OUT IS NEAR -->
+										<form action="index.php" method="post">
+							<input type="submit" value="P" class="p_button tablebutton" name="present_button" />
+							<input type="hidden" name="present_bstudent" value="33" />
+						</form>
+						                            <form action="index.php" method="post">
+							<input class="tablebutton" type="submit" value="A" name="Absent" />
+							<input type="hidden" name="absent_student" value="33" />
+                                </form>
+												<!-- Late button with time input next to it -->
+                            <form action="index.php" method="post">
+							<input class="tablebutton l_button" id="latebutton" type="submit" value="Late" name="Late" />
+							<input type="input" name="late_time" placeholder="Expected" class="late_time ui-timepicker-input" autocomplete="off" />
+							<input type="hidden" name="late_student" value="33" />
+                                </form>
+						
+						
+					</td>
+					<td class="status_col">Not Checked In 						</td>
+				</tr>
+	  
+        
+                        <tr class="Status_Red">
+                    
+                                        
+					<td class="select_col">
+						<!-- checkbox that gives student data to the form at the top -->
+						<input type="checkbox" name="person[]" id="43" value="43" form="main" class="c_box" />
+	
+					</td>
+					            <!-- displays current rows student name, that students status and any comment associated with that status -->
+					<td class="student_col">
+						<a href="user.php?id=43&amp;name=Milo">Milo R</a>
+					</td>
+					<td class="student_col_buttons">
+						                    
+                        <!-- IF CHECK OUT IS NEAR -->
+										<form action="index.php" method="post">
+							<input type="submit" value="P" class="p_button tablebutton" name="present_button" />
+							<input type="hidden" name="present_bstudent" value="43" />
+						</form>
+						
+					</td>
+					<td class="status_col">Field Trip with Nic returning at 11:30 am						</td>
+				</tr>
+	  
+        
+                        <tr class="Status_Red">
+                    
+                                        
+					<td class="select_col">
+						<!-- checkbox that gives student data to the form at the top -->
+						<input type="checkbox" name="person[]" id="76" value="76" form="main" class="c_box" />
+	
+					</td>
+					            <!-- displays current rows student name, that students status and any comment associated with that status -->
+					<td class="student_col">
+						<a href="user.php?id=76&amp;name=Miranda">Miranda G</a>
+					</td>
+					<td class="student_col_buttons">
+						                    
+                        <!-- IF CHECK OUT IS NEAR -->
+										<form action="index.php" method="post">
+							<input type="submit" value="P" class="p_button tablebutton" name="present_button" />
+							<input type="hidden" name="present_bstudent" value="76" />
+						</form>
+						                            <form action="index.php" method="post">
+							<input class="tablebutton" type="submit" value="A" name="Absent" />
+							<input type="hidden" name="absent_student" value="76" />
+                                </form>
+												<!-- Late button with time input next to it -->
+                            <form action="index.php" method="post">
+							<input class="tablebutton l_button" id="latebutton" type="submit" value="Late" name="Late" />
+							<input type="input" name="late_time" placeholder="Expected" class="late_time ui-timepicker-input" autocomplete="off" />
+							<input type="hidden" name="late_student" value="76" />
+                                </form>
+						
+						
+					</td>
+					<td class="status_col">Not Checked In 						</td>
+				</tr>
+	  
+        
+                        <tr class="Status_Red">
+                    
+                                        
+					<td class="select_col">
+						<!-- checkbox that gives student data to the form at the top -->
+						<input type="checkbox" name="person[]" id="32" value="32" form="main" class="c_box" />
+	
+					</td>
+					            <!-- displays current rows student name, that students status and any comment associated with that status -->
+					<td class="student_col">
+						<a href="user.php?id=32&amp;name=Niall">Niall S</a>
+					</td>
+					<td class="student_col_buttons">
+						                    
+                        <!-- IF CHECK OUT IS NEAR -->
+										<form action="index.php" method="post">
+							<input type="submit" value="P" class="p_button tablebutton" name="present_button" />
+							<input type="hidden" name="present_bstudent" value="32" />
+						</form>
+						                            <form action="index.php" method="post">
+							<input class="tablebutton" type="submit" value="A" name="Absent" />
+							<input type="hidden" name="absent_student" value="32" />
+                                </form>
+												<!-- Late button with time input next to it -->
+                            <form action="index.php" method="post">
+							<input class="tablebutton l_button" id="latebutton" type="submit" value="Late" name="Late" />
+							<input type="input" name="late_time" placeholder="Expected" class="late_time ui-timepicker-input" autocomplete="off" />
+							<input type="hidden" name="late_student" value="32" />
+                                </form>
+						
+						
+					</td>
+					<td class="status_col">Not Checked In 						</td>
+				</tr>
+	  
+        
+                        <tr class="Status_Red">
+                    
+                                        
+					<td class="select_col">
+						<!-- checkbox that gives student data to the form at the top -->
+						<input type="checkbox" name="person[]" id="51" value="51" form="main" class="c_box" />
+	
+					</td>
+					            <!-- displays current rows student name, that students status and any comment associated with that status -->
+					<td class="student_col">
+						<a href="user.php?id=51&amp;name=Olive">Olive H</a>
+					</td>
+					<td class="student_col_buttons">
+						                    
+                        <!-- IF CHECK OUT IS NEAR -->
+										<form action="index.php" method="post">
+							<input type="submit" value="P" class="p_button tablebutton" name="present_button" />
+							<input type="hidden" name="present_bstudent" value="51" />
+						</form>
+						                            <form action="index.php" method="post">
+							<input class="tablebutton" type="submit" value="A" name="Absent" />
+							<input type="hidden" name="absent_student" value="51" />
+                                </form>
+												<!-- Late button with time input next to it -->
+                            <form action="index.php" method="post">
+							<input class="tablebutton l_button" id="latebutton" type="submit" value="Late" name="Late" />
+							<input type="input" name="late_time" placeholder="Expected" class="late_time ui-timepicker-input" autocomplete="off" />
+							<input type="hidden" name="late_student" value="51" />
+                                </form>
+						
+						
+					</td>
+					<td class="status_col">Not Checked In 						</td>
+				</tr>
+	  
+        
+                        <tr class="Status_Red">
+                    
+                                        
+					<td class="select_col">
+						<!-- checkbox that gives student data to the form at the top -->
+						<input type="checkbox" name="person[]" id="83" value="83" form="main" class="c_box" />
+	
+					</td>
+					            <!-- displays current rows student name, that students status and any comment associated with that status -->
+					<td class="student_col">
+						<a href="user.php?id=83&amp;name=Olivia">Olivia A</a>
+					</td>
+					<td class="student_col_buttons">
+						                    
+                        <!-- IF CHECK OUT IS NEAR -->
+										<form action="index.php" method="post">
+							<input type="submit" value="P" class="p_button tablebutton" name="present_button" />
+							<input type="hidden" name="present_bstudent" value="83" />
+						</form>
+						                            <form action="index.php" method="post">
+							<input class="tablebutton" type="submit" value="A" name="Absent" />
+							<input type="hidden" name="absent_student" value="83" />
+                                </form>
+												<!-- Late button with time input next to it -->
+                            <form action="index.php" method="post">
+							<input class="tablebutton l_button" id="latebutton" type="submit" value="Late" name="Late" />
+							<input type="input" name="late_time" placeholder="Expected" class="late_time ui-timepicker-input" autocomplete="off" />
+							<input type="hidden" name="late_student" value="83" />
+                                </form>
+						
+						
+					</td>
+					<td class="status_col">Not Checked In 						</td>
+				</tr>
+	  
+        
+                        <tr class="Status_Red">
+                    
+                                        
+					<td class="select_col">
+						<!-- checkbox that gives student data to the form at the top -->
+						<input type="checkbox" name="person[]" id="79" value="79" form="main" class="c_box" />
+	
+					</td>
+					            <!-- displays current rows student name, that students status and any comment associated with that status -->
+					<td class="student_col">
+						<a href="user.php?id=79&amp;name=Oscar">Oscar W</a>
+					</td>
+					<td class="student_col_buttons">
+						                    
+                        <!-- IF CHECK OUT IS NEAR -->
+										<form action="index.php" method="post">
+							<input type="submit" value="P" class="p_button tablebutton" name="present_button" />
+							<input type="hidden" name="present_bstudent" value="79" />
+						</form>
+						                            <form action="index.php" method="post">
+							<input class="tablebutton" type="submit" value="A" name="Absent" />
+							<input type="hidden" name="absent_student" value="79" />
+                                </form>
+												<!-- Late button with time input next to it -->
+                            <form action="index.php" method="post">
+							<input class="tablebutton l_button" id="latebutton" type="submit" value="Late" name="Late" />
+							<input type="input" name="late_time" placeholder="Expected" class="late_time ui-timepicker-input" autocomplete="off" />
+							<input type="hidden" name="late_student" value="79" />
+                                </form>
+						
+						
+					</td>
+					<td class="status_col">Not Checked In 						</td>
+				</tr>
+	  
+        
+                        <tr class="Status_Red">
+                    
+                                        
+					<td class="select_col">
+						<!-- checkbox that gives student data to the form at the top -->
+						<input type="checkbox" name="person[]" id="25" value="25" form="main" class="c_box" />
+	
+					</td>
+					            <!-- displays current rows student name, that students status and any comment associated with that status -->
+					<td class="student_col">
+						<a href="user.php?id=25&amp;name=Peyton">Peyton B</a>
+					</td>
+					<td class="student_col_buttons">
+						                    
+                        <!-- IF CHECK OUT IS NEAR -->
+										<form action="index.php" method="post">
+							<input type="submit" value="P" class="p_button tablebutton" name="present_button" />
+							<input type="hidden" name="present_bstudent" value="25" />
+						</form>
+						                            <form action="index.php" method="post">
+							<input class="tablebutton" type="submit" value="A" name="Absent" />
+							<input type="hidden" name="absent_student" value="25" />
+                                </form>
+												<!-- Late button with time input next to it -->
+                            <form action="index.php" method="post">
+							<input class="tablebutton l_button" id="latebutton" type="submit" value="Late" name="Late" />
+							<input type="input" name="late_time" placeholder="Expected" class="late_time ui-timepicker-input" autocomplete="off" />
+							<input type="hidden" name="late_student" value="25" />
+                                </form>
+						
+						
+					</td>
+					<td class="status_col">Not Checked In 						</td>
+				</tr>
+	  
+        
+                        <tr class="Status_Red">
+                    
+                                        
+					<td class="select_col">
+						<!-- checkbox that gives student data to the form at the top -->
+						<input type="checkbox" name="person[]" id="7" value="7" form="main" class="c_box" />
+	
+					</td>
+					            <!-- displays current rows student name, that students status and any comment associated with that status -->
+					<td class="student_col">
+						<a href="user.php?id=7&amp;name=Quinn">Quinn H</a>
+					</td>
+					<td class="student_col_buttons">
+						                    
+                        <!-- IF CHECK OUT IS NEAR -->
+										<form action="index.php" method="post">
+							<input type="submit" value="P" class="p_button tablebutton" name="present_button" />
+							<input type="hidden" name="present_bstudent" value="7" />
+						</form>
+						                            <form action="index.php" method="post">
+							<input class="tablebutton" type="submit" value="A" name="Absent" />
+							<input type="hidden" name="absent_student" value="7" />
+                                </form>
+												<!-- Late button with time input next to it -->
+                            <form action="index.php" method="post">
+							<input class="tablebutton l_button" id="latebutton" type="submit" value="Late" name="Late" />
+							<input type="input" name="late_time" placeholder="Expected" class="late_time ui-timepicker-input" autocomplete="off" />
+							<input type="hidden" name="late_student" value="7" />
+                                </form>
+						
+						
+					</td>
+					<td class="status_col">Not Checked In 						</td>
+				</tr>
+	  
+        
+                        <tr class="Status_Red">
+                    
+                                        
+					<td class="select_col">
+						<!-- checkbox that gives student data to the form at the top -->
+						<input type="checkbox" name="person[]" id="47" value="47" form="main" class="c_box" />
+	
+					</td>
+					            <!-- displays current rows student name, that students status and any comment associated with that status -->
+					<td class="student_col">
+						<a href="user.php?id=47&amp;name=River">River H</a>
+					</td>
+					<td class="student_col_buttons">
+						                    
+                        <!-- IF CHECK OUT IS NEAR -->
+										<form action="index.php" method="post">
+							<input type="submit" value="P" class="p_button tablebutton" name="present_button" />
+							<input type="hidden" name="present_bstudent" value="47" />
+						</form>
+						                            <form action="index.php" method="post">
+							<input class="tablebutton" type="submit" value="A" name="Absent" />
+							<input type="hidden" name="absent_student" value="47" />
+                                </form>
+												<!-- Late button with time input next to it -->
+                            <form action="index.php" method="post">
+							<input class="tablebutton l_button" id="latebutton" type="submit" value="Late" name="Late" />
+							<input type="input" name="late_time" placeholder="Expected" class="late_time ui-timepicker-input" autocomplete="off" />
+							<input type="hidden" name="late_student" value="47" />
+                                </form>
+						
+						
+					</td>
+					<td class="status_col">Not Checked In 						</td>
+				</tr>
+	  
+        
+                        <tr class="Status_Red">
+                    
+                                        
+					<td class="select_col">
+						<!-- checkbox that gives student data to the form at the top -->
+						<input type="checkbox" name="person[]" id="62" value="62" form="main" class="c_box" />
+	
+					</td>
+					            <!-- displays current rows student name, that students status and any comment associated with that status -->
+					<td class="student_col">
+						<a href="user.php?id=62&amp;name=Ruby">Ruby P</a>
+					</td>
+					<td class="student_col_buttons">
+						                    
+                        <!-- IF CHECK OUT IS NEAR -->
+										<form action="index.php" method="post">
+							<input type="submit" value="P" class="p_button tablebutton" name="present_button" />
+							<input type="hidden" name="present_bstudent" value="62" />
+						</form>
+						                            <form action="index.php" method="post">
+							<input class="tablebutton" type="submit" value="A" name="Absent" />
+							<input type="hidden" name="absent_student" value="62" />
+                                </form>
+												<!-- Late button with time input next to it -->
+                            <form action="index.php" method="post">
+							<input class="tablebutton l_button" id="latebutton" type="submit" value="Late" name="Late" />
+							<input type="input" name="late_time" placeholder="Expected" class="late_time ui-timepicker-input" autocomplete="off" />
+							<input type="hidden" name="late_student" value="62" />
+                                </form>
+						
+						
+					</td>
+					<td class="status_col">Not Checked In 						</td>
+				</tr>
+	  
+        
+                        <tr class="Status_Red">
+                    
+                                        
+					<td class="select_col">
+						<!-- checkbox that gives student data to the form at the top -->
+						<input type="checkbox" name="person[]" id="34" value="34" form="main" class="c_box" />
+	
+					</td>
+					            <!-- displays current rows student name, that students status and any comment associated with that status -->
+					<td class="student_col">
+						<a href="user.php?id=34&amp;name=Samuel">Samuel B</a>
+					</td>
+					<td class="student_col_buttons">
+						                    
+                        <!-- IF CHECK OUT IS NEAR -->
+										<form action="index.php" method="post">
+							<input type="submit" value="P" class="p_button tablebutton" name="present_button" />
+							<input type="hidden" name="present_bstudent" value="34" />
+						</form>
+						                            <form action="index.php" method="post">
+							<input class="tablebutton" type="submit" value="A" name="Absent" />
+							<input type="hidden" name="absent_student" value="34" />
+                                </form>
+												<!-- Late button with time input next to it -->
+                            <form action="index.php" method="post">
+							<input class="tablebutton l_button" id="latebutton" type="submit" value="Late" name="Late" />
+							<input type="input" name="late_time" placeholder="Expected" class="late_time ui-timepicker-input" autocomplete="off" />
+							<input type="hidden" name="late_student" value="34" />
+                                </form>
+						
+						
+					</td>
+					<td class="status_col">Not Checked In 						</td>
+				</tr>
+	  
+        
+                        <tr class="Status_Red">
+                    
+                                        
+					<td class="select_col">
+						<!-- checkbox that gives student data to the form at the top -->
+						<input type="checkbox" name="person[]" id="63" value="63" form="main" class="c_box" />
+	
+					</td>
+					            <!-- displays current rows student name, that students status and any comment associated with that status -->
+					<td class="student_col">
+						<a href="user.php?id=63&amp;name=Sara">Sara B</a>
+					</td>
+					<td class="student_col_buttons">
+						                    
+                        <!-- IF CHECK OUT IS NEAR -->
+										<form action="index.php" method="post">
+							<input type="submit" value="P" class="p_button tablebutton" name="present_button" />
+							<input type="hidden" name="present_bstudent" value="63" />
+						</form>
+						                            <form action="index.php" method="post">
+							<input class="tablebutton" type="submit" value="A" name="Absent" />
+							<input type="hidden" name="absent_student" value="63" />
+                                </form>
+												<!-- Late button with time input next to it -->
+                            <form action="index.php" method="post">
+							<input class="tablebutton l_button" id="latebutton" type="submit" value="Late" name="Late" />
+							<input type="input" name="late_time" placeholder="Expected" class="late_time ui-timepicker-input" autocomplete="off" />
+							<input type="hidden" name="late_student" value="63" />
+                                </form>
+						
+						
+					</td>
+					<td class="status_col">Not Checked In 						</td>
+				</tr>
+	  
+        
+                        <tr class="Status_Red">
+                    
+                                        
+					<td class="select_col">
+						<!-- checkbox that gives student data to the form at the top -->
+						<input type="checkbox" name="person[]" id="64" value="64" form="main" class="c_box" />
+	
+					</td>
+					            <!-- displays current rows student name, that students status and any comment associated with that status -->
+					<td class="student_col">
+						<a href="user.php?id=64&amp;name=Sasha">Sasha M</a>
+					</td>
+					<td class="student_col_buttons">
+						                    
+                        <!-- IF CHECK OUT IS NEAR -->
+										<form action="index.php" method="post">
+							<input type="submit" value="P" class="p_button tablebutton" name="present_button" />
+							<input type="hidden" name="present_bstudent" value="64" />
+						</form>
+						                            <form action="index.php" method="post">
+							<input class="tablebutton" type="submit" value="A" name="Absent" />
+							<input type="hidden" name="absent_student" value="64" />
+                                </form>
+												<!-- Late button with time input next to it -->
+                            <form action="index.php" method="post">
+							<input class="tablebutton l_button" id="latebutton" type="submit" value="Late" name="Late" />
+							<input type="input" name="late_time" placeholder="Expected" class="late_time ui-timepicker-input" autocomplete="off" />
+							<input type="hidden" name="late_student" value="64" />
+                                </form>
+						
+						
+					</td>
+					<td class="status_col">Not Checked In 						</td>
+				</tr>
+	  
+        
+                        <tr class="Status_Red">
+                    
+                                        
+					<td class="select_col">
+						<!-- checkbox that gives student data to the form at the top -->
+						<input type="checkbox" name="person[]" id="65" value="65" form="main" class="c_box" />
+	
+					</td>
+					            <!-- displays current rows student name, that students status and any comment associated with that status -->
+					<td class="student_col">
+						<a href="user.php?id=65&amp;name=Shane">Shane O</a>
+					</td>
+					<td class="student_col_buttons">
+						                    
+                        <!-- IF CHECK OUT IS NEAR -->
+										<form action="index.php" method="post">
+							<input type="submit" value="P" class="p_button tablebutton" name="present_button" />
+							<input type="hidden" name="present_bstudent" value="65" />
+						</form>
+						                            <form action="index.php" method="post">
+							<input class="tablebutton" type="submit" value="A" name="Absent" />
+							<input type="hidden" name="absent_student" value="65" />
+                                </form>
+												<!-- Late button with time input next to it -->
+                            <form action="index.php" method="post">
+							<input class="tablebutton l_button" id="latebutton" type="submit" value="Late" name="Late" />
+							<input type="input" name="late_time" placeholder="Expected" class="late_time ui-timepicker-input" autocomplete="off" />
+							<input type="hidden" name="late_student" value="65" />
+                                </form>
+						
+						
+					</td>
+					<td class="status_col">Not Checked In 						</td>
+				</tr>
+	  
+        
+                        <tr class="Status_Red">
+                    
+                                        
+					<td class="select_col">
+						<!-- checkbox that gives student data to the form at the top -->
+						<input type="checkbox" name="person[]" id="40" value="40" form="main" class="c_box" />
+	
+					</td>
+					            <!-- displays current rows student name, that students status and any comment associated with that status -->
+					<td class="student_col">
+						<a href="user.php?id=40&amp;name=Simon">Simon E</a>
+					</td>
+					<td class="student_col_buttons">
+						                    
+                        <!-- IF CHECK OUT IS NEAR -->
+										<form action="index.php" method="post">
+							<input type="submit" value="P" class="p_button tablebutton" name="present_button" />
+							<input type="hidden" name="present_bstudent" value="40" />
+						</form>
+						                            <form action="index.php" method="post">
+							<input class="tablebutton" type="submit" value="A" name="Absent" />
+							<input type="hidden" name="absent_student" value="40" />
+                                </form>
+												<!-- Late button with time input next to it -->
+                            <form action="index.php" method="post">
+							<input class="tablebutton l_button" id="latebutton" type="submit" value="Late" name="Late" />
+							<input type="input" name="late_time" placeholder="Expected" class="late_time ui-timepicker-input" autocomplete="off" />
+							<input type="hidden" name="late_student" value="40" />
+                                </form>
+						
+						
+					</td>
+					<td class="status_col">Not Checked In 						</td>
+				</tr>
+	  
+        
+                        <tr class="Status_Red">
+                    
+                                        
+					<td class="select_col">
+						<!-- checkbox that gives student data to the form at the top -->
+						<input type="checkbox" name="person[]" id="28" value="28" form="main" class="c_box" />
+	
+					</td>
+					            <!-- displays current rows student name, that students status and any comment associated with that status -->
+					<td class="student_col">
+						<a href="user.php?id=28&amp;name=Sofia">Sofia M</a>
+					</td>
+					<td class="student_col_buttons">
+						                    
+                        <!-- IF CHECK OUT IS NEAR -->
+										<form action="index.php" method="post">
+							<input type="submit" value="P" class="p_button tablebutton" name="present_button" />
+							<input type="hidden" name="present_bstudent" value="28" />
+						</form>
+						                            <form action="index.php" method="post">
+							<input class="tablebutton" type="submit" value="A" name="Absent" />
+							<input type="hidden" name="absent_student" value="28" />
+                                </form>
+												<!-- Late button with time input next to it -->
+                            <form action="index.php" method="post">
+							<input class="tablebutton l_button" id="latebutton" type="submit" value="Late" name="Late" />
+							<input type="input" name="late_time" placeholder="Expected" class="late_time ui-timepicker-input" autocomplete="off" />
+							<input type="hidden" name="late_student" value="28" />
+                                </form>
+						
+						
+					</td>
+					<td class="status_col">Not Checked In 						</td>
+				</tr>
+	  
+        
+                        <tr class="Status_Red">
+                    
+                                        
+					<td class="select_col">
+						<!-- checkbox that gives student data to the form at the top -->
+						<input type="checkbox" name="person[]" id="24" value="24" form="main" class="c_box" />
+	
+					</td>
+					            <!-- displays current rows student name, that students status and any comment associated with that status -->
+					<td class="student_col">
+						<a href="user.php?id=24&amp;name=Spencer">Spencer S</a>
+					</td>
+					<td class="student_col_buttons">
+						                    
+                        <!-- IF CHECK OUT IS NEAR -->
+										<form action="index.php" method="post">
+							<input type="submit" value="P" class="p_button tablebutton" name="present_button" />
+							<input type="hidden" name="present_bstudent" value="24" />
+						</form>
+						                            <form action="index.php" method="post">
+							<input class="tablebutton" type="submit" value="A" name="Absent" />
+							<input type="hidden" name="absent_student" value="24" />
+                                </form>
+												<!-- Late button with time input next to it -->
+                            <form action="index.php" method="post">
+							<input class="tablebutton l_button" id="latebutton" type="submit" value="Late" name="Late" />
+							<input type="input" name="late_time" placeholder="Expected" class="late_time ui-timepicker-input" autocomplete="off" />
+							<input type="hidden" name="late_student" value="24" />
+                                </form>
+						
+						
+					</td>
+					<td class="status_col">Not Checked In 						</td>
+				</tr>
+	  
+        
+                        <tr class="Status_Red">
+                    
+                                        
+					<td class="select_col">
+						<!-- checkbox that gives student data to the form at the top -->
+						<input type="checkbox" name="person[]" id="66" value="66" form="main" class="c_box" />
+	
+					</td>
+					            <!-- displays current rows student name, that students status and any comment associated with that status -->
+					<td class="student_col">
+						<a href="user.php?id=66&amp;name=Xin">Xin F</a>
+					</td>
+					<td class="student_col_buttons">
+						                    
+                        <!-- IF CHECK OUT IS NEAR -->
+										<form action="index.php" method="post">
+							<input type="submit" value="P" class="p_button tablebutton" name="present_button" />
+							<input type="hidden" name="present_bstudent" value="66" />
+						</form>
+						                            <form action="index.php" method="post">
+							<input class="tablebutton" type="submit" value="A" name="Absent" />
+							<input type="hidden" name="absent_student" value="66" />
+                                </form>
+												<!-- Late button with time input next to it -->
+                            <form action="index.php" method="post">
+							<input class="tablebutton l_button" id="latebutton" type="submit" value="Late" name="Late" />
+							<input type="input" name="late_time" placeholder="Expected" class="late_time ui-timepicker-input" autocomplete="off" />
+							<input type="hidden" name="late_student" value="66" />
+                                </form>
+						
+						
+					</td>
+					<td class="status_col">Not Checked In 						</td>
+				</tr>
+	  
+        
+                        <tr class="Status_Red">
+                    
+                                        
+					<td class="select_col">
+						<!-- checkbox that gives student data to the form at the top -->
+						<input type="checkbox" name="person[]" id="67" value="67" form="main" class="c_box" />
+	
+					</td>
+					            <!-- displays current rows student name, that students status and any comment associated with that status -->
+					<td class="student_col">
+						<a href="user.php?id=67&amp;name=Zane">Zane T</a>
+					</td>
+					<td class="student_col_buttons">
+						                    
+                        <!-- IF CHECK OUT IS NEAR -->
+										<form action="index.php" method="post">
+							<input type="submit" value="P" class="p_button tablebutton" name="present_button" />
+							<input type="hidden" name="present_bstudent" value="67" />
+						</form>
+						                            <form action="index.php" method="post">
+							<input class="tablebutton" type="submit" value="A" name="Absent" />
+							<input type="hidden" name="absent_student" value="67" />
+                                </form>
+												<!-- Late button with time input next to it -->
+                            <form action="index.php" method="post">
+							<input class="tablebutton l_button" id="latebutton" type="submit" value="Late" name="Late" />
+							<input type="input" name="late_time" placeholder="Expected" class="late_time ui-timepicker-input" autocomplete="off" />
+							<input type="hidden" name="late_student" value="67" />
+                                </form>
+						
+						
+					</td>
+					<td class="status_col">Not Checked In 						</td>
+				</tr>
+		</tbody></table>
+	
+	</div>
+	<!-- CODE FOR GROUPS BOX -->
+    <script>
+        $(document).ready(function() {
+			$('.groupsGUI').mouseenter(function() {
+				$('.groupsGUI').stop().animate({ right: "0px"} , "fast");
+                $('.groupHeader').addClass('active');
+                $('.groupButton').addClass('active');
+			});
+			$('.groupsGUI').mouseleave(function() {
+				$('.groupsGUI').stop().animate({ right: "-140px"} , "fast");
+                $('.groupHeader').removeClass('active');
+                $('.groupButton').removeClass('active');
+			});
+		});
+</script>
+	<!-- CODE FOR MULTI-CHECKBOX SELECT-->
+	
+	<script>
+	    $.fn.shiftSelectable = function() {
+		var lastChecked,
+		    $boxes = this;
+	     
+		$boxes.click(function(evt) {
+		    if(!lastChecked) {
+			lastChecked = this;
+			return;
+		    }
+	     
+		    if(evt.shiftKey) {
+			var start = $boxes.index(this),
+			    end = $boxes.index(lastChecked);
+			$boxes.slice(Math.min(start, end), Math.max(start, end) + 1)
+			    .prop('checked', lastChecked.checked)
+			    .trigger('change');
+		    }
+	     
+		    lastChecked = this;
+		});
+	    };
+	</script>
+	
+	<script>
+	    $(document).ready(function() {
+		$('.c_box').shiftSelectable();
+          
+	    });
+	</script>
+
+    <script>
+        $(document).ready(function(){
+            $("#checkAll").change(function () {
+		if (document.getElementById("checkAll").checked == true) {
+		var ok = confirm("Select All Students?");
+			if (ok == true) {
+                		$("input:checkbox").prop('checked', $(this).prop("checked"));
+			} else {
+				document.getElementById("checkAll").checked = false;
+			}
+		} else if (document.getElementById("checkAll").checked == false) {
+		var ok = confirm("Deselect All Students?");
+			if (ok == true) {
+                		$("input:checkbox").prop('checked', $(this).prop("checked"));
+			} else {
+				document.getElementById("checkAll").checked = true;
+			}
+		}
+            });
+        });
+	/*$("#offlocDropdown").change(function () {
+alert($(this).val());
+});
+if you click on an option it gives an alert with that option*/
+$("#offlocDropdown").change(function () {
+if ($(this).val() == "Custom") {
+//alert("hola");
+//document.write("&lt;style&gt;#customtext { opacity:9.0; }&lt;/style&gt;");
+document.getElementById("cdropdown").innerHTML = '';
+document.getElementById("cdiv").innerHTML = '&lt;input type="text" name="customtext" id="customtext" placeholder="Custom Location" list="offlocDropdown" maxlength="25" class="offloc" style="width:100px;opacity:9.0;"&gt;';
+}
+});
+    </script>
+
+
+
+<script type="text/javascript">
+
+  // Original JavaScript code by Chirp Internet: www.chirp.com.au
+  // Please acknowledge use of this code by including this header.
+
+  function getCookie(name)
+  {
+    var re = new RegExp(name + "=([^;]+)");
+    var value = re.exec(document.cookie);
+    return (value != null) ? unescape(value[1]) : null;
+  }
+    
+    function del_cookie(name) {
+        document.cookie = name +
+        '=; expires=Thu, 01-Jan-70 00:00:01 GMT;';
+    }
+
+</script>
+
+
+	
+	
+	
+</body></html>

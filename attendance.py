@@ -49,6 +49,7 @@ if len(sys.argv) > studentcounter+1:
 else:
 	studentid = sys.argv[studentcounter]
 	
+print(statusname)
 chromedriver = 'C:\\Windows\\chromedriver.exe'
 browser = webdriver.Chrome(chromedriver)
 
