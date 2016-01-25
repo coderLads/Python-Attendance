@@ -48,7 +48,7 @@
 		
 		<div>
 			<!-- top interface present button -->
-	        <input class="PSCSbtn button" id="present_button" type="submit" value="P" name="present" style="width: 25px;" />
+	        <input class="PSCSbtn button" id="present_button" type="submit" value="Present" name="present" style="width: 60px;" />
 	    </div>
 	   
 	   	<div>
@@ -110,11 +110,11 @@
 	       <input class="button" type="submit" name="fieldtrip" value="Field Trip" /> 
 	    </div>
 		<div class="statusview_button">
-			<a href="statusview.php">Status</a>
+			<a href="statusview.php">Status View</a>
 		</div>
         <!-- Link To Admin Page -->
         		<div class="viewreports_button">
-			<a href="viewreports.php">Reports</a>
+			<a href="viewreports.php">View Reports</a>
 		</div>
         <div>
 			<a href="secondary_login.php?logout=1">Logout</a>
@@ -189,9 +189,8 @@
 	        <th class="status_col" id="status_header"><a href="index.php?sortBy=status&amp;r=0">Status</a></th>
 			
 	    </tr>
-	     
-        
-                        <tr class="Status_Red">
+	                               
+				        <tr>
                     
                                         
 					<td class="select_col">
@@ -210,24 +209,12 @@
 							<input type="submit" value="P" class="p_button tablebutton" name="present_button" />
 							<input type="hidden" name="present_bstudent" value="55" />
 						</form>
-						                            <form action="index.php" method="post">
-							<input class="tablebutton" type="submit" value="A" name="Absent" />
-							<input type="hidden" name="absent_student" value="55" />
-                                </form>
-												<!-- Late button with time input next to it -->
-                            <form action="index.php" method="post">
-							<input class="tablebutton l_button" id="latebutton" type="submit" value="Late" name="Late" />
-							<input type="input" name="late_time" placeholder="Expected" class="late_time ui-timepicker-input" autocomplete="off" />
-							<input type="hidden" name="late_student" value="55" />
-                                </form>
-						
 						
 					</td>
-					<td class="status_col">Not Checked In 						</td>
+					<td class="status_col">Offsite at pscs returning at 10:28 am						</td>
 				</tr>
-	  
-        
-                        <tr class="Status_Red">
+	                            
+				        <tr>
                     
                                         
 					<td class="select_col">
@@ -242,28 +229,12 @@
 					<td class="student_col_buttons">
 						                    
                         <!-- IF CHECK OUT IS NEAR -->
-										<form action="index.php" method="post">
-							<input type="submit" value="P" class="p_button tablebutton" name="present_button" />
-							<input type="hidden" name="present_bstudent" value="72" />
-						</form>
-						                            <form action="index.php" method="post">
-							<input class="tablebutton" type="submit" value="A" name="Absent" />
-							<input type="hidden" name="absent_student" value="72" />
-                                </form>
-												<!-- Late button with time input next to it -->
-                            <form action="index.php" method="post">
-							<input class="tablebutton l_button" id="latebutton" type="submit" value="Late" name="Late" />
-							<input type="input" name="late_time" placeholder="Expected" class="late_time ui-timepicker-input" autocomplete="off" />
-							<input type="hidden" name="late_student" value="72" />
-                                </form>
-						
-						
+				
 					</td>
-					<td class="status_col">Not Checked In 						</td>
+					<td class="status_col">Absent 						</td>
 				</tr>
-	  
-        
-                        <tr class="Status_Red">
+	                            
+				        <tr>
                     
                                         
 					<td class="select_col">
@@ -278,28 +249,12 @@
 					<td class="student_col_buttons">
 						                    
                         <!-- IF CHECK OUT IS NEAR -->
-										<form action="index.php" method="post">
-							<input type="submit" value="P" class="p_button tablebutton" name="present_button" />
-							<input type="hidden" name="present_bstudent" value="17" />
-						</form>
-						                            <form action="index.php" method="post">
-							<input class="tablebutton" type="submit" value="A" name="Absent" />
-							<input type="hidden" name="absent_student" value="17" />
-                                </form>
-												<!-- Late button with time input next to it -->
-                            <form action="index.php" method="post">
-							<input class="tablebutton l_button" id="latebutton" type="submit" value="Late" name="Late" />
-							<input type="input" name="late_time" placeholder="Expected" class="late_time ui-timepicker-input" autocomplete="off" />
-							<input type="hidden" name="late_student" value="17" />
-                                </form>
-						
-						
+				
 					</td>
-					<td class="status_col">Not Checked In 						</td>
+					<td class="status_col">Present 						</td>
 				</tr>
-	  
-        
-                        <tr class="Status_Red">
+	                            
+				        <tr>
                     
                                         
 					<td class="select_col">
@@ -314,28 +269,12 @@
 					<td class="student_col_buttons">
 						                    
                         <!-- IF CHECK OUT IS NEAR -->
-										<form action="index.php" method="post">
-							<input type="submit" value="P" class="p_button tablebutton" name="present_button" />
-							<input type="hidden" name="present_bstudent" value="29" />
-						</form>
-						                            <form action="index.php" method="post">
-							<input class="tablebutton" type="submit" value="A" name="Absent" />
-							<input type="hidden" name="absent_student" value="29" />
-                                </form>
-												<!-- Late button with time input next to it -->
-                            <form action="index.php" method="post">
-							<input class="tablebutton l_button" id="latebutton" type="submit" value="Late" name="Late" />
-							<input type="input" name="late_time" placeholder="Expected" class="late_time ui-timepicker-input" autocomplete="off" />
-							<input type="hidden" name="late_student" value="29" />
-                                </form>
-						
-						
+				
 					</td>
-					<td class="status_col">Not Checked In 						</td>
+					<td class="status_col">Present 						</td>
 				</tr>
-	  
-        
-                        <tr class="Status_Red">
+	                            
+				        <tr>
                     
                                         
 					<td class="select_col">
@@ -354,10 +293,6 @@
 							<input type="submit" value="P" class="p_button tablebutton" name="present_button" />
 							<input type="hidden" name="present_bstudent" value="81" />
 						</form>
-						                            <form action="index.php" method="post">
-							<input class="tablebutton" type="submit" value="A" name="Absent" />
-							<input type="hidden" name="absent_student" value="81" />
-                                </form>
 												<!-- Late button with time input next to it -->
                             <form action="index.php" method="post">
 							<input class="tablebutton l_button" id="latebutton" type="submit" value="Late" name="Late" />
@@ -367,11 +302,10 @@
 						
 						
 					</td>
-					<td class="status_col">Not Checked In 						</td>
+					<td class="status_col">Late  arriving at 10:00 am						</td>
 				</tr>
-	  
-        
-                        <tr class="Status_Red">
+	                            
+				        <tr>
                     
                                         
 					<td class="select_col">
@@ -386,28 +320,12 @@
 					<td class="student_col_buttons">
 						                    
                         <!-- IF CHECK OUT IS NEAR -->
-										<form action="index.php" method="post">
-							<input type="submit" value="P" class="p_button tablebutton" name="present_button" />
-							<input type="hidden" name="present_bstudent" value="21" />
-						</form>
-						                            <form action="index.php" method="post">
-							<input class="tablebutton" type="submit" value="A" name="Absent" />
-							<input type="hidden" name="absent_student" value="21" />
-                                </form>
-												<!-- Late button with time input next to it -->
-                            <form action="index.php" method="post">
-							<input class="tablebutton l_button" id="latebutton" type="submit" value="Late" name="Late" />
-							<input type="input" name="late_time" placeholder="Expected" class="late_time ui-timepicker-input" autocomplete="off" />
-							<input type="hidden" name="late_student" value="21" />
-                                </form>
-						
-						
+				
 					</td>
-					<td class="status_col">Not Checked In 						</td>
+					<td class="status_col">Present 						</td>
 				</tr>
-	  
-        
-                        <tr class="Status_Red">
+	                            
+				        <tr>
                     
                                         
 					<td class="select_col">
@@ -422,28 +340,12 @@
 					<td class="student_col_buttons">
 						                    
                         <!-- IF CHECK OUT IS NEAR -->
-										<form action="index.php" method="post">
-							<input type="submit" value="P" class="p_button tablebutton" name="present_button" />
-							<input type="hidden" name="present_bstudent" value="78" />
-						</form>
-						                            <form action="index.php" method="post">
-							<input class="tablebutton" type="submit" value="A" name="Absent" />
-							<input type="hidden" name="absent_student" value="78" />
-                                </form>
-												<!-- Late button with time input next to it -->
-                            <form action="index.php" method="post">
-							<input class="tablebutton l_button" id="latebutton" type="submit" value="Late" name="Late" />
-							<input type="input" name="late_time" placeholder="Expected" class="late_time ui-timepicker-input" autocomplete="off" />
-							<input type="hidden" name="late_student" value="78" />
-                                </form>
-						
-						
+				
 					</td>
-					<td class="status_col">Not Checked In 						</td>
+					<td class="status_col">Present 						</td>
 				</tr>
-	  
-        
-                        <tr class="Status_Red">
+	                            
+				        <tr>
                     
                                         
 					<td class="select_col">
@@ -458,28 +360,12 @@
 					<td class="student_col_buttons">
 						                    
                         <!-- IF CHECK OUT IS NEAR -->
-										<form action="index.php" method="post">
-							<input type="submit" value="P" class="p_button tablebutton" name="present_button" />
-							<input type="hidden" name="present_bstudent" value="31" />
-						</form>
-						                            <form action="index.php" method="post">
-							<input class="tablebutton" type="submit" value="A" name="Absent" />
-							<input type="hidden" name="absent_student" value="31" />
-                                </form>
-												<!-- Late button with time input next to it -->
-                            <form action="index.php" method="post">
-							<input class="tablebutton l_button" id="latebutton" type="submit" value="Late" name="Late" />
-							<input type="input" name="late_time" placeholder="Expected" class="late_time ui-timepicker-input" autocomplete="off" />
-							<input type="hidden" name="late_student" value="31" />
-                                </form>
-						
-						
+				
 					</td>
-					<td class="status_col">Not Checked In 						</td>
+					<td class="status_col">Present 						</td>
 				</tr>
-	  
-        
-                        <tr class="Status_Red">
+	                            
+				        <tr>
                     
                                         
 					<td class="select_col">
@@ -494,28 +380,12 @@
 					<td class="student_col_buttons">
 						                    
                         <!-- IF CHECK OUT IS NEAR -->
-										<form action="index.php" method="post">
-							<input type="submit" value="P" class="p_button tablebutton" name="present_button" />
-							<input type="hidden" name="present_bstudent" value="85" />
-						</form>
-						                            <form action="index.php" method="post">
-							<input class="tablebutton" type="submit" value="A" name="Absent" />
-							<input type="hidden" name="absent_student" value="85" />
-                                </form>
-												<!-- Late button with time input next to it -->
-                            <form action="index.php" method="post">
-							<input class="tablebutton l_button" id="latebutton" type="submit" value="Late" name="Late" />
-							<input type="input" name="late_time" placeholder="Expected" class="late_time ui-timepicker-input" autocomplete="off" />
-							<input type="hidden" name="late_student" value="85" />
-                                </form>
-						
-						
+				
 					</td>
-					<td class="status_col">Not Checked In 						</td>
+					<td class="status_col">Present 						</td>
 				</tr>
-	  
-        
-                        <tr class="Status_Red">
+	                            
+				        <tr>
                     
                                         
 					<td class="select_col">
@@ -530,28 +400,12 @@
 					<td class="student_col_buttons">
 						                    
                         <!-- IF CHECK OUT IS NEAR -->
-										<form action="index.php" method="post">
-							<input type="submit" value="P" class="p_button tablebutton" name="present_button" />
-							<input type="hidden" name="present_bstudent" value="37" />
-						</form>
-						                            <form action="index.php" method="post">
-							<input class="tablebutton" type="submit" value="A" name="Absent" />
-							<input type="hidden" name="absent_student" value="37" />
-                                </form>
-												<!-- Late button with time input next to it -->
-                            <form action="index.php" method="post">
-							<input class="tablebutton l_button" id="latebutton" type="submit" value="Late" name="Late" />
-							<input type="input" name="late_time" placeholder="Expected" class="late_time ui-timepicker-input" autocomplete="off" />
-							<input type="hidden" name="late_student" value="37" />
-                                </form>
-						
-						
+				
 					</td>
-					<td class="status_col">Not Checked In 						</td>
+					<td class="status_col">Present 						</td>
 				</tr>
-	  
-        
-                        <tr class="Status_Red">
+	                            
+				        <tr>
                     
                                         
 					<td class="select_col">
@@ -566,28 +420,12 @@
 					<td class="student_col_buttons">
 						                    
                         <!-- IF CHECK OUT IS NEAR -->
-										<form action="index.php" method="post">
-							<input type="submit" value="P" class="p_button tablebutton" name="present_button" />
-							<input type="hidden" name="present_bstudent" value="77" />
-						</form>
-						                            <form action="index.php" method="post">
-							<input class="tablebutton" type="submit" value="A" name="Absent" />
-							<input type="hidden" name="absent_student" value="77" />
-                                </form>
-												<!-- Late button with time input next to it -->
-                            <form action="index.php" method="post">
-							<input class="tablebutton l_button" id="latebutton" type="submit" value="Late" name="Late" />
-							<input type="input" name="late_time" placeholder="Expected" class="late_time ui-timepicker-input" autocomplete="off" />
-							<input type="hidden" name="late_student" value="77" />
-                                </form>
-						
-						
+				
 					</td>
-					<td class="status_col">Not Checked In 						</td>
+					<td class="status_col">Present 						</td>
 				</tr>
-	  
-        
-                        <tr class="Status_Red">
+	                            
+				        <tr>
                     
                                         
 					<td class="select_col">
@@ -602,28 +440,12 @@
 					<td class="student_col_buttons">
 						                    
                         <!-- IF CHECK OUT IS NEAR -->
-										<form action="index.php" method="post">
-							<input type="submit" value="P" class="p_button tablebutton" name="present_button" />
-							<input type="hidden" name="present_bstudent" value="57" />
-						</form>
-						                            <form action="index.php" method="post">
-							<input class="tablebutton" type="submit" value="A" name="Absent" />
-							<input type="hidden" name="absent_student" value="57" />
-                                </form>
-												<!-- Late button with time input next to it -->
-                            <form action="index.php" method="post">
-							<input class="tablebutton l_button" id="latebutton" type="submit" value="Late" name="Late" />
-							<input type="input" name="late_time" placeholder="Expected" class="late_time ui-timepicker-input" autocomplete="off" />
-							<input type="hidden" name="late_student" value="57" />
-                                </form>
-						
-						
+				
 					</td>
-					<td class="status_col">Not Checked In 						</td>
+					<td class="status_col">Present 						</td>
 				</tr>
-	  
-        
-                        <tr class="Status_Red">
+	                            
+				        <tr>
                     
                                         
 					<td class="select_col">
@@ -638,28 +460,12 @@
 					<td class="student_col_buttons">
 						                    
                         <!-- IF CHECK OUT IS NEAR -->
-										<form action="index.php" method="post">
-							<input type="submit" value="P" class="p_button tablebutton" name="present_button" />
-							<input type="hidden" name="present_bstudent" value="30" />
-						</form>
-						                            <form action="index.php" method="post">
-							<input class="tablebutton" type="submit" value="A" name="Absent" />
-							<input type="hidden" name="absent_student" value="30" />
-                                </form>
-												<!-- Late button with time input next to it -->
-                            <form action="index.php" method="post">
-							<input class="tablebutton l_button" id="latebutton" type="submit" value="Late" name="Late" />
-							<input type="input" name="late_time" placeholder="Expected" class="late_time ui-timepicker-input" autocomplete="off" />
-							<input type="hidden" name="late_student" value="30" />
-                                </form>
-						
-						
+				
 					</td>
-					<td class="status_col">Not Checked In 						</td>
+					<td class="status_col">Present 						</td>
 				</tr>
-	  
-        
-                        <tr class="Status_Red">
+	                            
+				        <tr>
                     
                                         
 					<td class="select_col">
@@ -674,28 +480,12 @@
 					<td class="student_col_buttons">
 						                    
                         <!-- IF CHECK OUT IS NEAR -->
-										<form action="index.php" method="post">
-							<input type="submit" value="P" class="p_button tablebutton" name="present_button" />
-							<input type="hidden" name="present_bstudent" value="58" />
-						</form>
-						                            <form action="index.php" method="post">
-							<input class="tablebutton" type="submit" value="A" name="Absent" />
-							<input type="hidden" name="absent_student" value="58" />
-                                </form>
-												<!-- Late button with time input next to it -->
-                            <form action="index.php" method="post">
-							<input class="tablebutton l_button" id="latebutton" type="submit" value="Late" name="Late" />
-							<input type="input" name="late_time" placeholder="Expected" class="late_time ui-timepicker-input" autocomplete="off" />
-							<input type="hidden" name="late_student" value="58" />
-                                </form>
-						
-						
+				
 					</td>
-					<td class="status_col">Not Checked In 						</td>
+					<td class="status_col">Present 						</td>
 				</tr>
-	  
-        
-                        <tr class="Status_Red">
+	                            
+				        <tr>
                     
                                         
 					<td class="select_col">
@@ -710,28 +500,12 @@
 					<td class="student_col_buttons">
 						                    
                         <!-- IF CHECK OUT IS NEAR -->
-										<form action="index.php" method="post">
-							<input type="submit" value="P" class="p_button tablebutton" name="present_button" />
-							<input type="hidden" name="present_bstudent" value="20" />
-						</form>
-						                            <form action="index.php" method="post">
-							<input class="tablebutton" type="submit" value="A" name="Absent" />
-							<input type="hidden" name="absent_student" value="20" />
-                                </form>
-												<!-- Late button with time input next to it -->
-                            <form action="index.php" method="post">
-							<input class="tablebutton l_button" id="latebutton" type="submit" value="Late" name="Late" />
-							<input type="input" name="late_time" placeholder="Expected" class="late_time ui-timepicker-input" autocomplete="off" />
-							<input type="hidden" name="late_student" value="20" />
-                                </form>
-						
-						
+				
 					</td>
-					<td class="status_col">Not Checked In 						</td>
+					<td class="status_col">Present 						</td>
 				</tr>
-	  
-        
-                        <tr class="Status_Red">
+	                            
+				        <tr>
                     
                                         
 					<td class="select_col">
@@ -746,28 +520,12 @@
 					<td class="student_col_buttons">
 						                    
                         <!-- IF CHECK OUT IS NEAR -->
-										<form action="index.php" method="post">
-							<input type="submit" value="P" class="p_button tablebutton" name="present_button" />
-							<input type="hidden" name="present_bstudent" value="42" />
-						</form>
-						                            <form action="index.php" method="post">
-							<input class="tablebutton" type="submit" value="A" name="Absent" />
-							<input type="hidden" name="absent_student" value="42" />
-                                </form>
-												<!-- Late button with time input next to it -->
-                            <form action="index.php" method="post">
-							<input class="tablebutton l_button" id="latebutton" type="submit" value="Late" name="Late" />
-							<input type="input" name="late_time" placeholder="Expected" class="late_time ui-timepicker-input" autocomplete="off" />
-							<input type="hidden" name="late_student" value="42" />
-                                </form>
-						
-						
+				
 					</td>
-					<td class="status_col">Not Checked In 						</td>
+					<td class="status_col">Absent 						</td>
 				</tr>
-	  
-        
-                        <tr class="Status_Red">
+	                            
+				        <tr>
                     
                                         
 					<td class="select_col">
@@ -786,24 +544,12 @@
 							<input type="submit" value="P" class="p_button tablebutton" name="present_button" />
 							<input type="hidden" name="present_bstudent" value="59" />
 						</form>
-						                            <form action="index.php" method="post">
-							<input class="tablebutton" type="submit" value="A" name="Absent" />
-							<input type="hidden" name="absent_student" value="59" />
-                                </form>
-												<!-- Late button with time input next to it -->
-                            <form action="index.php" method="post">
-							<input class="tablebutton l_button" id="latebutton" type="submit" value="Late" name="Late" />
-							<input type="input" name="late_time" placeholder="Expected" class="late_time ui-timepicker-input" autocomplete="off" />
-							<input type="hidden" name="late_student" value="59" />
-                                </form>
-						
 						
 					</td>
-					<td class="status_col">Not Checked In 						</td>
+					<td class="status_col">Offsite at Specialty's  returning at 10:25 am						</td>
 				</tr>
-	  
-        
-                        <tr class="Status_Red">
+	                            
+				        <tr>
                     
                                         
 					<td class="select_col">
@@ -818,28 +564,12 @@
 					<td class="student_col_buttons">
 						                    
                         <!-- IF CHECK OUT IS NEAR -->
-										<form action="index.php" method="post">
-							<input type="submit" value="P" class="p_button tablebutton" name="present_button" />
-							<input type="hidden" name="present_bstudent" value="39" />
-						</form>
-						                            <form action="index.php" method="post">
-							<input class="tablebutton" type="submit" value="A" name="Absent" />
-							<input type="hidden" name="absent_student" value="39" />
-                                </form>
-												<!-- Late button with time input next to it -->
-                            <form action="index.php" method="post">
-							<input class="tablebutton l_button" id="latebutton" type="submit" value="Late" name="Late" />
-							<input type="input" name="late_time" placeholder="Expected" class="late_time ui-timepicker-input" autocomplete="off" />
-							<input type="hidden" name="late_student" value="39" />
-                                </form>
-						
-						
+				
 					</td>
-					<td class="status_col">Not Checked In 						</td>
+					<td class="status_col">Present 						</td>
 				</tr>
-	  
-        
-                        <tr class="Status_Red">
+	                            
+				        <tr>
                     
                                         
 					<td class="select_col">
@@ -854,28 +584,12 @@
 					<td class="student_col_buttons">
 						                    
                         <!-- IF CHECK OUT IS NEAR -->
-										<form action="index.php" method="post">
-							<input type="submit" value="P" class="p_button tablebutton" name="present_button" />
-							<input type="hidden" name="present_bstudent" value="60" />
-						</form>
-						                            <form action="index.php" method="post">
-							<input class="tablebutton" type="submit" value="A" name="Absent" />
-							<input type="hidden" name="absent_student" value="60" />
-                                </form>
-												<!-- Late button with time input next to it -->
-                            <form action="index.php" method="post">
-							<input class="tablebutton l_button" id="latebutton" type="submit" value="Late" name="Late" />
-							<input type="input" name="late_time" placeholder="Expected" class="late_time ui-timepicker-input" autocomplete="off" />
-							<input type="hidden" name="late_student" value="60" />
-                                </form>
-						
-						
+				
 					</td>
-					<td class="status_col">Not Checked In 						</td>
+					<td class="status_col">Present 						</td>
 				</tr>
-	  
-        
-                        <tr class="Status_Red">
+	                            
+				        <tr>
                     
                                         
 					<td class="select_col">
@@ -890,28 +604,12 @@
 					<td class="student_col_buttons">
 						                    
                         <!-- IF CHECK OUT IS NEAR -->
-										<form action="index.php" method="post">
-							<input type="submit" value="P" class="p_button tablebutton" name="present_button" />
-							<input type="hidden" name="present_bstudent" value="41" />
-						</form>
-						                            <form action="index.php" method="post">
-							<input class="tablebutton" type="submit" value="A" name="Absent" />
-							<input type="hidden" name="absent_student" value="41" />
-                                </form>
-												<!-- Late button with time input next to it -->
-                            <form action="index.php" method="post">
-							<input class="tablebutton l_button" id="latebutton" type="submit" value="Late" name="Late" />
-							<input type="input" name="late_time" placeholder="Expected" class="late_time ui-timepicker-input" autocomplete="off" />
-							<input type="hidden" name="late_student" value="41" />
-                                </form>
-						
-						
+				
 					</td>
-					<td class="status_col">Not Checked In 						</td>
+					<td class="status_col">Present 						</td>
 				</tr>
-	  
-        
-                        <tr class="Status_Red">
+	                            
+				        <tr>
                     
                                         
 					<td class="select_col">
@@ -930,24 +628,12 @@
 							<input type="submit" value="P" class="p_button tablebutton" name="present_button" />
 							<input type="hidden" name="present_bstudent" value="19" />
 						</form>
-						                            <form action="index.php" method="post">
-							<input class="tablebutton" type="submit" value="A" name="Absent" />
-							<input type="hidden" name="absent_student" value="19" />
-                                </form>
-												<!-- Late button with time input next to it -->
-                            <form action="index.php" method="post">
-							<input class="tablebutton l_button" id="latebutton" type="submit" value="Late" name="Late" />
-							<input type="input" name="late_time" placeholder="Expected" class="late_time ui-timepicker-input" autocomplete="off" />
-							<input type="hidden" name="late_student" value="19" />
-                                </form>
-						
 						
 					</td>
-					<td class="status_col">Not Checked In 						</td>
+					<td class="status_col">Independent Study  returning at 12:20 pm						</td>
 				</tr>
-	  
-        
-                        <tr class="Status_Red">
+	                            
+				        <tr>
                     
                                         
 					<td class="select_col">
@@ -962,28 +648,12 @@
 					<td class="student_col_buttons">
 						                    
                         <!-- IF CHECK OUT IS NEAR -->
-										<form action="index.php" method="post">
-							<input type="submit" value="P" class="p_button tablebutton" name="present_button" />
-							<input type="hidden" name="present_bstudent" value="36" />
-						</form>
-						                            <form action="index.php" method="post">
-							<input class="tablebutton" type="submit" value="A" name="Absent" />
-							<input type="hidden" name="absent_student" value="36" />
-                                </form>
-												<!-- Late button with time input next to it -->
-                            <form action="index.php" method="post">
-							<input class="tablebutton l_button" id="latebutton" type="submit" value="Late" name="Late" />
-							<input type="input" name="late_time" placeholder="Expected" class="late_time ui-timepicker-input" autocomplete="off" />
-							<input type="hidden" name="late_student" value="36" />
-                                </form>
-						
-						
+				
 					</td>
-					<td class="status_col">Not Checked In 						</td>
+					<td class="status_col">Present 						</td>
 				</tr>
-	  
-        
-                        <tr class="Status_Red">
+	                            
+				        <tr>
                     
                                         
 					<td class="select_col">
@@ -998,28 +668,12 @@
 					<td class="student_col_buttons">
 						                    
                         <!-- IF CHECK OUT IS NEAR -->
-										<form action="index.php" method="post">
-							<input type="submit" value="P" class="p_button tablebutton" name="present_button" />
-							<input type="hidden" name="present_bstudent" value="27" />
-						</form>
-						                            <form action="index.php" method="post">
-							<input class="tablebutton" type="submit" value="A" name="Absent" />
-							<input type="hidden" name="absent_student" value="27" />
-                                </form>
-												<!-- Late button with time input next to it -->
-                            <form action="index.php" method="post">
-							<input class="tablebutton l_button" id="latebutton" type="submit" value="Late" name="Late" />
-							<input type="input" name="late_time" placeholder="Expected" class="late_time ui-timepicker-input" autocomplete="off" />
-							<input type="hidden" name="late_student" value="27" />
-                                </form>
-						
-						
+				
 					</td>
-					<td class="status_col">Not Checked In 						</td>
+					<td class="status_col">Present 						</td>
 				</tr>
-	  
-        
-                        <tr class="Status_Red">
+	                            
+				        <tr>
                     
                                         
 					<td class="select_col">
@@ -1034,28 +688,12 @@
 					<td class="student_col_buttons">
 						                    
                         <!-- IF CHECK OUT IS NEAR -->
-										<form action="index.php" method="post">
-							<input type="submit" value="P" class="p_button tablebutton" name="present_button" />
-							<input type="hidden" name="present_bstudent" value="86" />
-						</form>
-						                            <form action="index.php" method="post">
-							<input class="tablebutton" type="submit" value="A" name="Absent" />
-							<input type="hidden" name="absent_student" value="86" />
-                                </form>
-												<!-- Late button with time input next to it -->
-                            <form action="index.php" method="post">
-							<input class="tablebutton l_button" id="latebutton" type="submit" value="Late" name="Late" />
-							<input type="input" name="late_time" placeholder="Expected" class="late_time ui-timepicker-input" autocomplete="off" />
-							<input type="hidden" name="late_student" value="86" />
-                                </form>
-						
-						
+				
 					</td>
-					<td class="status_col">Not Checked In 						</td>
+					<td class="status_col">Present 						</td>
 				</tr>
-	  
-        
-                        <tr class="Status_Red">
+	                            
+				        <tr>
                     
                                         
 					<td class="select_col">
@@ -1074,10 +712,6 @@
 							<input type="submit" value="P" class="p_button tablebutton" name="present_button" />
 							<input type="hidden" name="present_bstudent" value="35" />
 						</form>
-						                            <form action="index.php" method="post">
-							<input class="tablebutton" type="submit" value="A" name="Absent" />
-							<input type="hidden" name="absent_student" value="35" />
-                                </form>
 												<!-- Late button with time input next to it -->
                             <form action="index.php" method="post">
 							<input class="tablebutton l_button" id="latebutton" type="submit" value="Late" name="Late" />
@@ -1087,11 +721,10 @@
 						
 						
 					</td>
-					<td class="status_col">Not Checked In 						</td>
+					<td class="status_col">Late  arriving at 10:30 am						</td>
 				</tr>
-	  
-        
-                        <tr class="Status_Red">
+	                            
+				        <tr>
                     
                                         
 					<td class="select_col">
@@ -1106,28 +739,12 @@
 					<td class="student_col_buttons">
 						                    
                         <!-- IF CHECK OUT IS NEAR -->
-										<form action="index.php" method="post">
-							<input type="submit" value="P" class="p_button tablebutton" name="present_button" />
-							<input type="hidden" name="present_bstudent" value="48" />
-						</form>
-						                            <form action="index.php" method="post">
-							<input class="tablebutton" type="submit" value="A" name="Absent" />
-							<input type="hidden" name="absent_student" value="48" />
-                                </form>
-												<!-- Late button with time input next to it -->
-                            <form action="index.php" method="post">
-							<input class="tablebutton l_button" id="latebutton" type="submit" value="Late" name="Late" />
-							<input type="input" name="late_time" placeholder="Expected" class="late_time ui-timepicker-input" autocomplete="off" />
-							<input type="hidden" name="late_student" value="48" />
-                                </form>
-						
-						
+				
 					</td>
-					<td class="status_col">Not Checked In 						</td>
+					<td class="status_col">Absent 						</td>
 				</tr>
-	  
-        
-                        <tr class="Status_Red">
+	                            
+				        <tr>
                     
                                         
 					<td class="select_col">
@@ -1142,28 +759,12 @@
 					<td class="student_col_buttons">
 						                    
                         <!-- IF CHECK OUT IS NEAR -->
-										<form action="index.php" method="post">
-							<input type="submit" value="P" class="p_button tablebutton" name="present_button" />
-							<input type="hidden" name="present_bstudent" value="18" />
-						</form>
-						                            <form action="index.php" method="post">
-							<input class="tablebutton" type="submit" value="A" name="Absent" />
-							<input type="hidden" name="absent_student" value="18" />
-                                </form>
-												<!-- Late button with time input next to it -->
-                            <form action="index.php" method="post">
-							<input class="tablebutton l_button" id="latebutton" type="submit" value="Late" name="Late" />
-							<input type="input" name="late_time" placeholder="Expected" class="late_time ui-timepicker-input" autocomplete="off" />
-							<input type="hidden" name="late_student" value="18" />
-                                </form>
-						
-						
+				
 					</td>
-					<td class="status_col">Not Checked In 						</td>
+					<td class="status_col">Absent 						</td>
 				</tr>
-	  
-        
-                        <tr class="Status_Red">
+	                            
+				        <tr>
                     
                                         
 					<td class="select_col">
@@ -1178,28 +779,12 @@
 					<td class="student_col_buttons">
 						                    
                         <!-- IF CHECK OUT IS NEAR -->
-										<form action="index.php" method="post">
-							<input type="submit" value="P" class="p_button tablebutton" name="present_button" />
-							<input type="hidden" name="present_bstudent" value="61" />
-						</form>
-						                            <form action="index.php" method="post">
-							<input class="tablebutton" type="submit" value="A" name="Absent" />
-							<input type="hidden" name="absent_student" value="61" />
-                                </form>
-												<!-- Late button with time input next to it -->
-                            <form action="index.php" method="post">
-							<input class="tablebutton l_button" id="latebutton" type="submit" value="Late" name="Late" />
-							<input type="input" name="late_time" placeholder="Expected" class="late_time ui-timepicker-input" autocomplete="off" />
-							<input type="hidden" name="late_student" value="61" />
-                                </form>
-						
-						
+				
 					</td>
-					<td class="status_col">Not Checked In 						</td>
+					<td class="status_col">Absent 						</td>
 				</tr>
-	  
-        
-                        <tr class="Status_Red">
+	                            
+				        <tr>
                     
                                         
 					<td class="select_col">
@@ -1214,28 +799,12 @@
 					<td class="student_col_buttons">
 						                    
                         <!-- IF CHECK OUT IS NEAR -->
-										<form action="index.php" method="post">
-							<input type="submit" value="P" class="p_button tablebutton" name="present_button" />
-							<input type="hidden" name="present_bstudent" value="80" />
-						</form>
-						                            <form action="index.php" method="post">
-							<input class="tablebutton" type="submit" value="A" name="Absent" />
-							<input type="hidden" name="absent_student" value="80" />
-                                </form>
-												<!-- Late button with time input next to it -->
-                            <form action="index.php" method="post">
-							<input class="tablebutton l_button" id="latebutton" type="submit" value="Late" name="Late" />
-							<input type="input" name="late_time" placeholder="Expected" class="late_time ui-timepicker-input" autocomplete="off" />
-							<input type="hidden" name="late_student" value="80" />
-                                </form>
-						
-						
+				
 					</td>
-					<td class="status_col">Not Checked In 						</td>
+					<td class="status_col">Present 						</td>
 				</tr>
-	  
-        
-                        <tr class="Status_Red">
+	                            
+				        <tr>
                     
                                         
 					<td class="select_col">
@@ -1250,28 +819,12 @@
 					<td class="student_col_buttons">
 						                    
                         <!-- IF CHECK OUT IS NEAR -->
-										<form action="index.php" method="post">
-							<input type="submit" value="P" class="p_button tablebutton" name="present_button" />
-							<input type="hidden" name="present_bstudent" value="26" />
-						</form>
-						                            <form action="index.php" method="post">
-							<input class="tablebutton" type="submit" value="A" name="Absent" />
-							<input type="hidden" name="absent_student" value="26" />
-                                </form>
-												<!-- Late button with time input next to it -->
-                            <form action="index.php" method="post">
-							<input class="tablebutton l_button" id="latebutton" type="submit" value="Late" name="Late" />
-							<input type="input" name="late_time" placeholder="Expected" class="late_time ui-timepicker-input" autocomplete="off" />
-							<input type="hidden" name="late_student" value="26" />
-                                </form>
-						
-						
+				
 					</td>
-					<td class="status_col">Not Checked In 						</td>
+					<td class="status_col">Present 						</td>
 				</tr>
-	  
-        
-                        <tr class="Status_Red">
+	                            
+				        <tr>
                     
                                         
 					<td class="select_col">
@@ -1286,28 +839,12 @@
 					<td class="student_col_buttons">
 						                    
                         <!-- IF CHECK OUT IS NEAR -->
-										<form action="index.php" method="post">
-							<input type="submit" value="P" class="p_button tablebutton" name="present_button" />
-							<input type="hidden" name="present_bstudent" value="84" />
-						</form>
-						                            <form action="index.php" method="post">
-							<input class="tablebutton" type="submit" value="A" name="Absent" />
-							<input type="hidden" name="absent_student" value="84" />
-                                </form>
-												<!-- Late button with time input next to it -->
-                            <form action="index.php" method="post">
-							<input class="tablebutton l_button" id="latebutton" type="submit" value="Late" name="Late" />
-							<input type="input" name="late_time" placeholder="Expected" class="late_time ui-timepicker-input" autocomplete="off" />
-							<input type="hidden" name="late_student" value="84" />
-                                </form>
-						
-						
+				
 					</td>
-					<td class="status_col">Not Checked In 						</td>
+					<td class="status_col">Present 						</td>
 				</tr>
-	  
-        
-                        <tr class="Status_Red">
+	                            
+				        <tr>
                     
                                         
 					<td class="select_col">
@@ -1322,28 +859,12 @@
 					<td class="student_col_buttons">
 						                    
                         <!-- IF CHECK OUT IS NEAR -->
-										<form action="index.php" method="post">
-							<input type="submit" value="P" class="p_button tablebutton" name="present_button" />
-							<input type="hidden" name="present_bstudent" value="82" />
-						</form>
-						                            <form action="index.php" method="post">
-							<input class="tablebutton" type="submit" value="A" name="Absent" />
-							<input type="hidden" name="absent_student" value="82" />
-                                </form>
-												<!-- Late button with time input next to it -->
-                            <form action="index.php" method="post">
-							<input class="tablebutton l_button" id="latebutton" type="submit" value="Late" name="Late" />
-							<input type="input" name="late_time" placeholder="Expected" class="late_time ui-timepicker-input" autocomplete="off" />
-							<input type="hidden" name="late_student" value="82" />
-                                </form>
-						
-						
+				
 					</td>
-					<td class="status_col">Not Checked In 						</td>
+					<td class="status_col">Present 						</td>
 				</tr>
-	  
-        
-                        <tr class="Status_Red">
+	                            
+				        <tr>
                     
                                         
 					<td class="select_col">
@@ -1358,28 +879,12 @@
 					<td class="student_col_buttons">
 						                    
                         <!-- IF CHECK OUT IS NEAR -->
-										<form action="index.php" method="post">
-							<input type="submit" value="P" class="p_button tablebutton" name="present_button" />
-							<input type="hidden" name="present_bstudent" value="14" />
-						</form>
-						                            <form action="index.php" method="post">
-							<input class="tablebutton" type="submit" value="A" name="Absent" />
-							<input type="hidden" name="absent_student" value="14" />
-                                </form>
-												<!-- Late button with time input next to it -->
-                            <form action="index.php" method="post">
-							<input class="tablebutton l_button" id="latebutton" type="submit" value="Late" name="Late" />
-							<input type="input" name="late_time" placeholder="Expected" class="late_time ui-timepicker-input" autocomplete="off" />
-							<input type="hidden" name="late_student" value="14" />
-                                </form>
-						
-						
+				
 					</td>
-					<td class="status_col">Not Checked In 						</td>
+					<td class="status_col">Present 						</td>
 				</tr>
-	  
-        
-                        <tr class="Status_Red">
+	                            
+				        <tr>
                     
                                         
 					<td class="select_col">
@@ -1394,28 +899,12 @@
 					<td class="student_col_buttons">
 						                    
                         <!-- IF CHECK OUT IS NEAR -->
-										<form action="index.php" method="post">
-							<input type="submit" value="P" class="p_button tablebutton" name="present_button" />
-							<input type="hidden" name="present_bstudent" value="33" />
-						</form>
-						                            <form action="index.php" method="post">
-							<input class="tablebutton" type="submit" value="A" name="Absent" />
-							<input type="hidden" name="absent_student" value="33" />
-                                </form>
-												<!-- Late button with time input next to it -->
-                            <form action="index.php" method="post">
-							<input class="tablebutton l_button" id="latebutton" type="submit" value="Late" name="Late" />
-							<input type="input" name="late_time" placeholder="Expected" class="late_time ui-timepicker-input" autocomplete="off" />
-							<input type="hidden" name="late_student" value="33" />
-                                </form>
-						
-						
+				
 					</td>
-					<td class="status_col">Not Checked In 						</td>
+					<td class="status_col">Absent 						</td>
 				</tr>
-	  
-        
-                        <tr class="Status_Red">
+	                            
+				        <tr>
                     
                                         
 					<td class="select_col">
@@ -1438,9 +927,8 @@
 					</td>
 					<td class="status_col">Field Trip with Nic returning at 11:30 am						</td>
 				</tr>
-	  
-        
-                        <tr class="Status_Red">
+	                            
+				        <tr>
                     
                                         
 					<td class="select_col">
@@ -1455,28 +943,12 @@
 					<td class="student_col_buttons">
 						                    
                         <!-- IF CHECK OUT IS NEAR -->
-										<form action="index.php" method="post">
-							<input type="submit" value="P" class="p_button tablebutton" name="present_button" />
-							<input type="hidden" name="present_bstudent" value="76" />
-						</form>
-						                            <form action="index.php" method="post">
-							<input class="tablebutton" type="submit" value="A" name="Absent" />
-							<input type="hidden" name="absent_student" value="76" />
-                                </form>
-												<!-- Late button with time input next to it -->
-                            <form action="index.php" method="post">
-							<input class="tablebutton l_button" id="latebutton" type="submit" value="Late" name="Late" />
-							<input type="input" name="late_time" placeholder="Expected" class="late_time ui-timepicker-input" autocomplete="off" />
-							<input type="hidden" name="late_student" value="76" />
-                                </form>
-						
-						
+				
 					</td>
-					<td class="status_col">Not Checked In 						</td>
+					<td class="status_col">Present 						</td>
 				</tr>
-	  
-        
-                        <tr class="Status_Red">
+	                            
+				        <tr>
                     
                                         
 					<td class="select_col">
@@ -1495,24 +967,12 @@
 							<input type="submit" value="P" class="p_button tablebutton" name="present_button" />
 							<input type="hidden" name="present_bstudent" value="32" />
 						</form>
-						                            <form action="index.php" method="post">
-							<input class="tablebutton" type="submit" value="A" name="Absent" />
-							<input type="hidden" name="absent_student" value="32" />
-                                </form>
-												<!-- Late button with time input next to it -->
-                            <form action="index.php" method="post">
-							<input class="tablebutton l_button" id="latebutton" type="submit" value="Late" name="Late" />
-							<input type="input" name="late_time" placeholder="Expected" class="late_time ui-timepicker-input" autocomplete="off" />
-							<input type="hidden" name="late_student" value="32" />
-                                </form>
-						
 						
 					</td>
-					<td class="status_col">Not Checked In 						</td>
+					<td class="status_col">Independent Study  returning at 11:45 am						</td>
 				</tr>
-	  
-        
-                        <tr class="Status_Red">
+	                            
+				        <tr>
                     
                                         
 					<td class="select_col">
@@ -1527,28 +987,12 @@
 					<td class="student_col_buttons">
 						                    
                         <!-- IF CHECK OUT IS NEAR -->
-										<form action="index.php" method="post">
-							<input type="submit" value="P" class="p_button tablebutton" name="present_button" />
-							<input type="hidden" name="present_bstudent" value="51" />
-						</form>
-						                            <form action="index.php" method="post">
-							<input class="tablebutton" type="submit" value="A" name="Absent" />
-							<input type="hidden" name="absent_student" value="51" />
-                                </form>
-												<!-- Late button with time input next to it -->
-                            <form action="index.php" method="post">
-							<input class="tablebutton l_button" id="latebutton" type="submit" value="Late" name="Late" />
-							<input type="input" name="late_time" placeholder="Expected" class="late_time ui-timepicker-input" autocomplete="off" />
-							<input type="hidden" name="late_student" value="51" />
-                                </form>
-						
-						
+				
 					</td>
-					<td class="status_col">Not Checked In 						</td>
+					<td class="status_col">Present 						</td>
 				</tr>
-	  
-        
-                        <tr class="Status_Red">
+	                            
+				        <tr>
                     
                                         
 					<td class="select_col">
@@ -1563,28 +1007,12 @@
 					<td class="student_col_buttons">
 						                    
                         <!-- IF CHECK OUT IS NEAR -->
-										<form action="index.php" method="post">
-							<input type="submit" value="P" class="p_button tablebutton" name="present_button" />
-							<input type="hidden" name="present_bstudent" value="83" />
-						</form>
-						                            <form action="index.php" method="post">
-							<input class="tablebutton" type="submit" value="A" name="Absent" />
-							<input type="hidden" name="absent_student" value="83" />
-                                </form>
-												<!-- Late button with time input next to it -->
-                            <form action="index.php" method="post">
-							<input class="tablebutton l_button" id="latebutton" type="submit" value="Late" name="Late" />
-							<input type="input" name="late_time" placeholder="Expected" class="late_time ui-timepicker-input" autocomplete="off" />
-							<input type="hidden" name="late_student" value="83" />
-                                </form>
-						
-						
+				
 					</td>
-					<td class="status_col">Not Checked In 						</td>
+					<td class="status_col">Present 						</td>
 				</tr>
-	  
-        
-                        <tr class="Status_Red">
+	                            
+				        <tr>
                     
                                         
 					<td class="select_col">
@@ -1599,28 +1027,12 @@
 					<td class="student_col_buttons">
 						                    
                         <!-- IF CHECK OUT IS NEAR -->
-										<form action="index.php" method="post">
-							<input type="submit" value="P" class="p_button tablebutton" name="present_button" />
-							<input type="hidden" name="present_bstudent" value="79" />
-						</form>
-						                            <form action="index.php" method="post">
-							<input class="tablebutton" type="submit" value="A" name="Absent" />
-							<input type="hidden" name="absent_student" value="79" />
-                                </form>
-												<!-- Late button with time input next to it -->
-                            <form action="index.php" method="post">
-							<input class="tablebutton l_button" id="latebutton" type="submit" value="Late" name="Late" />
-							<input type="input" name="late_time" placeholder="Expected" class="late_time ui-timepicker-input" autocomplete="off" />
-							<input type="hidden" name="late_student" value="79" />
-                                </form>
-						
-						
+				
 					</td>
-					<td class="status_col">Not Checked In 						</td>
+					<td class="status_col">Present 						</td>
 				</tr>
-	  
-        
-                        <tr class="Status_Red">
+	                            
+				        <tr>
                     
                                         
 					<td class="select_col">
@@ -1635,28 +1047,12 @@
 					<td class="student_col_buttons">
 						                    
                         <!-- IF CHECK OUT IS NEAR -->
-										<form action="index.php" method="post">
-							<input type="submit" value="P" class="p_button tablebutton" name="present_button" />
-							<input type="hidden" name="present_bstudent" value="25" />
-						</form>
-						                            <form action="index.php" method="post">
-							<input class="tablebutton" type="submit" value="A" name="Absent" />
-							<input type="hidden" name="absent_student" value="25" />
-                                </form>
-												<!-- Late button with time input next to it -->
-                            <form action="index.php" method="post">
-							<input class="tablebutton l_button" id="latebutton" type="submit" value="Late" name="Late" />
-							<input type="input" name="late_time" placeholder="Expected" class="late_time ui-timepicker-input" autocomplete="off" />
-							<input type="hidden" name="late_student" value="25" />
-                                </form>
-						
-						
+				
 					</td>
-					<td class="status_col">Not Checked In 						</td>
+					<td class="status_col">Present 						</td>
 				</tr>
-	  
-        
-                        <tr class="Status_Red">
+	                            
+				        <tr>
                     
                                         
 					<td class="select_col">
@@ -1675,24 +1071,12 @@
 							<input type="submit" value="P" class="p_button tablebutton" name="present_button" />
 							<input type="hidden" name="present_bstudent" value="7" />
 						</form>
-						                            <form action="index.php" method="post">
-							<input class="tablebutton" type="submit" value="A" name="Absent" />
-							<input type="hidden" name="absent_student" value="7" />
-                                </form>
-												<!-- Late button with time input next to it -->
-                            <form action="index.php" method="post">
-							<input class="tablebutton l_button" id="latebutton" type="submit" value="Late" name="Late" />
-							<input type="input" name="late_time" placeholder="Expected" class="late_time ui-timepicker-input" autocomplete="off" />
-							<input type="hidden" name="late_student" value="7" />
-                                </form>
-						
 						
 					</td>
-					<td class="status_col">Not Checked In 						</td>
+					<td class="status_col">Offsite at Specialty's  returning at 10:25 am						</td>
 				</tr>
-	  
-        
-                        <tr class="Status_Red">
+	                            
+				        <tr>
                     
                                         
 					<td class="select_col">
@@ -1707,28 +1091,12 @@
 					<td class="student_col_buttons">
 						                    
                         <!-- IF CHECK OUT IS NEAR -->
-										<form action="index.php" method="post">
-							<input type="submit" value="P" class="p_button tablebutton" name="present_button" />
-							<input type="hidden" name="present_bstudent" value="47" />
-						</form>
-						                            <form action="index.php" method="post">
-							<input class="tablebutton" type="submit" value="A" name="Absent" />
-							<input type="hidden" name="absent_student" value="47" />
-                                </form>
-												<!-- Late button with time input next to it -->
-                            <form action="index.php" method="post">
-							<input class="tablebutton l_button" id="latebutton" type="submit" value="Late" name="Late" />
-							<input type="input" name="late_time" placeholder="Expected" class="late_time ui-timepicker-input" autocomplete="off" />
-							<input type="hidden" name="late_student" value="47" />
-                                </form>
-						
-						
+				
 					</td>
-					<td class="status_col">Not Checked In 						</td>
+					<td class="status_col">Present 						</td>
 				</tr>
-	  
-        
-                        <tr class="Status_Red">
+	                            
+				        <tr>
                     
                                         
 					<td class="select_col">
@@ -1743,28 +1111,12 @@
 					<td class="student_col_buttons">
 						                    
                         <!-- IF CHECK OUT IS NEAR -->
-										<form action="index.php" method="post">
-							<input type="submit" value="P" class="p_button tablebutton" name="present_button" />
-							<input type="hidden" name="present_bstudent" value="62" />
-						</form>
-						                            <form action="index.php" method="post">
-							<input class="tablebutton" type="submit" value="A" name="Absent" />
-							<input type="hidden" name="absent_student" value="62" />
-                                </form>
-												<!-- Late button with time input next to it -->
-                            <form action="index.php" method="post">
-							<input class="tablebutton l_button" id="latebutton" type="submit" value="Late" name="Late" />
-							<input type="input" name="late_time" placeholder="Expected" class="late_time ui-timepicker-input" autocomplete="off" />
-							<input type="hidden" name="late_student" value="62" />
-                                </form>
-						
-						
+				
 					</td>
-					<td class="status_col">Not Checked In 						</td>
+					<td class="status_col">Present 						</td>
 				</tr>
-	  
-        
-                        <tr class="Status_Red">
+	                            
+				        <tr>
                     
                                         
 					<td class="select_col">
@@ -1779,28 +1131,12 @@
 					<td class="student_col_buttons">
 						                    
                         <!-- IF CHECK OUT IS NEAR -->
-										<form action="index.php" method="post">
-							<input type="submit" value="P" class="p_button tablebutton" name="present_button" />
-							<input type="hidden" name="present_bstudent" value="34" />
-						</form>
-						                            <form action="index.php" method="post">
-							<input class="tablebutton" type="submit" value="A" name="Absent" />
-							<input type="hidden" name="absent_student" value="34" />
-                                </form>
-												<!-- Late button with time input next to it -->
-                            <form action="index.php" method="post">
-							<input class="tablebutton l_button" id="latebutton" type="submit" value="Late" name="Late" />
-							<input type="input" name="late_time" placeholder="Expected" class="late_time ui-timepicker-input" autocomplete="off" />
-							<input type="hidden" name="late_student" value="34" />
-                                </form>
-						
-						
+				
 					</td>
-					<td class="status_col">Not Checked In 						</td>
+					<td class="status_col">Present 						</td>
 				</tr>
-	  
-        
-                        <tr class="Status_Red">
+	                            
+				        <tr>
                     
                                         
 					<td class="select_col">
@@ -1815,28 +1151,12 @@
 					<td class="student_col_buttons">
 						                    
                         <!-- IF CHECK OUT IS NEAR -->
-										<form action="index.php" method="post">
-							<input type="submit" value="P" class="p_button tablebutton" name="present_button" />
-							<input type="hidden" name="present_bstudent" value="63" />
-						</form>
-						                            <form action="index.php" method="post">
-							<input class="tablebutton" type="submit" value="A" name="Absent" />
-							<input type="hidden" name="absent_student" value="63" />
-                                </form>
-												<!-- Late button with time input next to it -->
-                            <form action="index.php" method="post">
-							<input class="tablebutton l_button" id="latebutton" type="submit" value="Late" name="Late" />
-							<input type="input" name="late_time" placeholder="Expected" class="late_time ui-timepicker-input" autocomplete="off" />
-							<input type="hidden" name="late_student" value="63" />
-                                </form>
-						
-						
+				
 					</td>
-					<td class="status_col">Not Checked In 						</td>
+					<td class="status_col">Present 						</td>
 				</tr>
-	  
-        
-                        <tr class="Status_Red">
+	                            
+				        <tr>
                     
                                         
 					<td class="select_col">
@@ -1851,28 +1171,12 @@
 					<td class="student_col_buttons">
 						                    
                         <!-- IF CHECK OUT IS NEAR -->
-										<form action="index.php" method="post">
-							<input type="submit" value="P" class="p_button tablebutton" name="present_button" />
-							<input type="hidden" name="present_bstudent" value="64" />
-						</form>
-						                            <form action="index.php" method="post">
-							<input class="tablebutton" type="submit" value="A" name="Absent" />
-							<input type="hidden" name="absent_student" value="64" />
-                                </form>
-												<!-- Late button with time input next to it -->
-                            <form action="index.php" method="post">
-							<input class="tablebutton l_button" id="latebutton" type="submit" value="Late" name="Late" />
-							<input type="input" name="late_time" placeholder="Expected" class="late_time ui-timepicker-input" autocomplete="off" />
-							<input type="hidden" name="late_student" value="64" />
-                                </form>
-						
-						
+				
 					</td>
-					<td class="status_col">Not Checked In 						</td>
+					<td class="status_col">Present 						</td>
 				</tr>
-	  
-        
-                        <tr class="Status_Red">
+	                            
+				        <tr>
                     
                                         
 					<td class="select_col">
@@ -1887,28 +1191,12 @@
 					<td class="student_col_buttons">
 						                    
                         <!-- IF CHECK OUT IS NEAR -->
-										<form action="index.php" method="post">
-							<input type="submit" value="P" class="p_button tablebutton" name="present_button" />
-							<input type="hidden" name="present_bstudent" value="65" />
-						</form>
-						                            <form action="index.php" method="post">
-							<input class="tablebutton" type="submit" value="A" name="Absent" />
-							<input type="hidden" name="absent_student" value="65" />
-                                </form>
-												<!-- Late button with time input next to it -->
-                            <form action="index.php" method="post">
-							<input class="tablebutton l_button" id="latebutton" type="submit" value="Late" name="Late" />
-							<input type="input" name="late_time" placeholder="Expected" class="late_time ui-timepicker-input" autocomplete="off" />
-							<input type="hidden" name="late_student" value="65" />
-                                </form>
-						
-						
+				
 					</td>
-					<td class="status_col">Not Checked In 						</td>
+					<td class="status_col">Present 						</td>
 				</tr>
-	  
-        
-                        <tr class="Status_Red">
+	                            
+				        <tr>
                     
                                         
 					<td class="select_col">
@@ -1923,28 +1211,12 @@
 					<td class="student_col_buttons">
 						                    
                         <!-- IF CHECK OUT IS NEAR -->
-										<form action="index.php" method="post">
-							<input type="submit" value="P" class="p_button tablebutton" name="present_button" />
-							<input type="hidden" name="present_bstudent" value="40" />
-						</form>
-						                            <form action="index.php" method="post">
-							<input class="tablebutton" type="submit" value="A" name="Absent" />
-							<input type="hidden" name="absent_student" value="40" />
-                                </form>
-												<!-- Late button with time input next to it -->
-                            <form action="index.php" method="post">
-							<input class="tablebutton l_button" id="latebutton" type="submit" value="Late" name="Late" />
-							<input type="input" name="late_time" placeholder="Expected" class="late_time ui-timepicker-input" autocomplete="off" />
-							<input type="hidden" name="late_student" value="40" />
-                                </form>
-						
-						
+				
 					</td>
-					<td class="status_col">Not Checked In 						</td>
+					<td class="status_col">Present 						</td>
 				</tr>
-	  
-        
-                        <tr class="Status_Red">
+	                            
+				        <tr>
                     
                                         
 					<td class="select_col">
@@ -1959,28 +1231,12 @@
 					<td class="student_col_buttons">
 						                    
                         <!-- IF CHECK OUT IS NEAR -->
-										<form action="index.php" method="post">
-							<input type="submit" value="P" class="p_button tablebutton" name="present_button" />
-							<input type="hidden" name="present_bstudent" value="28" />
-						</form>
-						                            <form action="index.php" method="post">
-							<input class="tablebutton" type="submit" value="A" name="Absent" />
-							<input type="hidden" name="absent_student" value="28" />
-                                </form>
-												<!-- Late button with time input next to it -->
-                            <form action="index.php" method="post">
-							<input class="tablebutton l_button" id="latebutton" type="submit" value="Late" name="Late" />
-							<input type="input" name="late_time" placeholder="Expected" class="late_time ui-timepicker-input" autocomplete="off" />
-							<input type="hidden" name="late_student" value="28" />
-                                </form>
-						
-						
+				
 					</td>
-					<td class="status_col">Not Checked In 						</td>
+					<td class="status_col">Present 						</td>
 				</tr>
-	  
-        
-                        <tr class="Status_Red">
+	                            
+				        <tr>
                     
                                         
 					<td class="select_col">
@@ -1995,28 +1251,12 @@
 					<td class="student_col_buttons">
 						                    
                         <!-- IF CHECK OUT IS NEAR -->
-										<form action="index.php" method="post">
-							<input type="submit" value="P" class="p_button tablebutton" name="present_button" />
-							<input type="hidden" name="present_bstudent" value="24" />
-						</form>
-						                            <form action="index.php" method="post">
-							<input class="tablebutton" type="submit" value="A" name="Absent" />
-							<input type="hidden" name="absent_student" value="24" />
-                                </form>
-												<!-- Late button with time input next to it -->
-                            <form action="index.php" method="post">
-							<input class="tablebutton l_button" id="latebutton" type="submit" value="Late" name="Late" />
-							<input type="input" name="late_time" placeholder="Expected" class="late_time ui-timepicker-input" autocomplete="off" />
-							<input type="hidden" name="late_student" value="24" />
-                                </form>
-						
-						
+				
 					</td>
-					<td class="status_col">Not Checked In 						</td>
+					<td class="status_col">Present 						</td>
 				</tr>
-	  
-        
-                        <tr class="Status_Red">
+	                            
+				        <tr>
                     
                                         
 					<td class="select_col">
@@ -2031,28 +1271,12 @@
 					<td class="student_col_buttons">
 						                    
                         <!-- IF CHECK OUT IS NEAR -->
-										<form action="index.php" method="post">
-							<input type="submit" value="P" class="p_button tablebutton" name="present_button" />
-							<input type="hidden" name="present_bstudent" value="66" />
-						</form>
-						                            <form action="index.php" method="post">
-							<input class="tablebutton" type="submit" value="A" name="Absent" />
-							<input type="hidden" name="absent_student" value="66" />
-                                </form>
-												<!-- Late button with time input next to it -->
-                            <form action="index.php" method="post">
-							<input class="tablebutton l_button" id="latebutton" type="submit" value="Late" name="Late" />
-							<input type="input" name="late_time" placeholder="Expected" class="late_time ui-timepicker-input" autocomplete="off" />
-							<input type="hidden" name="late_student" value="66" />
-                                </form>
-						
-						
+				
 					</td>
-					<td class="status_col">Not Checked In 						</td>
+					<td class="status_col">Present 						</td>
 				</tr>
-	  
-        
-                        <tr class="Status_Red">
+	                            
+				        <tr>
                     
                                         
 					<td class="select_col">
@@ -2067,24 +1291,9 @@
 					<td class="student_col_buttons">
 						                    
                         <!-- IF CHECK OUT IS NEAR -->
-										<form action="index.php" method="post">
-							<input type="submit" value="P" class="p_button tablebutton" name="present_button" />
-							<input type="hidden" name="present_bstudent" value="67" />
-						</form>
-						                            <form action="index.php" method="post">
-							<input class="tablebutton" type="submit" value="A" name="Absent" />
-							<input type="hidden" name="absent_student" value="67" />
-                                </form>
-												<!-- Late button with time input next to it -->
-                            <form action="index.php" method="post">
-							<input class="tablebutton l_button" id="latebutton" type="submit" value="Late" name="Late" />
-							<input type="input" name="late_time" placeholder="Expected" class="late_time ui-timepicker-input" autocomplete="off" />
-							<input type="hidden" name="late_student" value="67" />
-                                </form>
-						
-						
+				
 					</td>
-					<td class="status_col">Not Checked In 						</td>
+					<td class="status_col">Present 						</td>
 				</tr>
 		</tbody></table>
 	
