@@ -41,7 +41,7 @@
 	<body class="mainpage">
 	<!-- setup -->
 	                         <form method="post" action="index.php" id="lmain">
-        		<div class="groupsGUI"><h1 class="groupHeader tab">Groups</h1><input class="groupButton" type="submit" name="Seniors" value="Seniors" /><br /><input class="groupButton" type="submit" name="Middle_School" value="Middle School" /><br /><input class="groupButton" type="submit" name="Handball" value="Handball" /><br /><input class="groupButton" type="submit" name="Climb_Stairs" value="Climb Stairs" /><br /><p class="groupHeader">Field Trip Groups</p><input class="groupButton" type="submit" name="Nic" value="Nic" /><br /></div>             </form>
+        		<div class="groupsGUI"><h1 class="groupHeader tab">Groups</h1><input class="groupButton" type="submit" name="Seniors" value="Seniors" /><br /><input class="groupButton" type="submit" name="Middle_School" value="Middle School" /><br /><input class="groupButton" type="submit" name="Handball" value="Handball" /><br /><input class="groupButton" type="submit" name="Climb_Stairs" value="Climb Stairs" /><br /><p class="groupHeader">Field Trip Groups</p><input class="groupButton" type="submit" name="Special_Approved" value="Special_Approved" /><br /></div>             </form>
 	<!-- top form for change status -->
 	<div id="top_header">
 	<form method="post" action="index.php" id="main">
@@ -205,13 +205,9 @@
 					<td class="student_col_buttons">
 						                    
                         <!-- IF CHECK OUT IS NEAR -->
-										<form action="index.php" method="post">
-							<input type="submit" value="P" class="p_button tablebutton" name="present_button" />
-							<input type="hidden" name="present_bstudent" value="55" />
-						</form>
-						
+				
 					</td>
-					<td class="status_col">Offsite at pscs returning at 10:28 am						</td>
+					<td class="status_col">Present 						</td>
 				</tr>
 	                            
 				        <tr>
@@ -289,20 +285,9 @@
 					<td class="student_col_buttons">
 						                    
                         <!-- IF CHECK OUT IS NEAR -->
-										<form action="index.php" method="post">
-							<input type="submit" value="P" class="p_button tablebutton" name="present_button" />
-							<input type="hidden" name="present_bstudent" value="81" />
-						</form>
-												<!-- Late button with time input next to it -->
-                            <form action="index.php" method="post">
-							<input class="tablebutton l_button" id="latebutton" type="submit" value="Late" name="Late" />
-							<input type="input" name="late_time" placeholder="Expected" class="late_time ui-timepicker-input" autocomplete="off" />
-							<input type="hidden" name="late_student" value="81" />
-                                </form>
-						
-						
+				
 					</td>
-					<td class="status_col">Late  arriving at 10:00 am						</td>
+					<td class="status_col">Absent 						</td>
 				</tr>
 	                            
 				        <tr>
@@ -540,13 +525,9 @@
 					<td class="student_col_buttons">
 						                    
                         <!-- IF CHECK OUT IS NEAR -->
-										<form action="index.php" method="post">
-							<input type="submit" value="P" class="p_button tablebutton" name="present_button" />
-							<input type="hidden" name="present_bstudent" value="59" />
-						</form>
-						
+				
 					</td>
-					<td class="status_col">Offsite at Specialty's  returning at 10:25 am						</td>
+					<td class="status_col">Present 						</td>
 				</tr>
 	                            
 				        <tr>
@@ -624,13 +605,9 @@
 					<td class="student_col_buttons">
 						                    
                         <!-- IF CHECK OUT IS NEAR -->
-										<form action="index.php" method="post">
-							<input type="submit" value="P" class="p_button tablebutton" name="present_button" />
-							<input type="hidden" name="present_bstudent" value="19" />
-						</form>
-						
+				
 					</td>
-					<td class="status_col">Independent Study  returning at 12:20 pm						</td>
+					<td class="status_col">Absent 						</td>
 				</tr>
 	                            
 				        <tr>
@@ -708,20 +685,9 @@
 					<td class="student_col_buttons">
 						                    
                         <!-- IF CHECK OUT IS NEAR -->
-										<form action="index.php" method="post">
-							<input type="submit" value="P" class="p_button tablebutton" name="present_button" />
-							<input type="hidden" name="present_bstudent" value="35" />
-						</form>
-												<!-- Late button with time input next to it -->
-                            <form action="index.php" method="post">
-							<input class="tablebutton l_button" id="latebutton" type="submit" value="Late" name="Late" />
-							<input type="input" name="late_time" placeholder="Expected" class="late_time ui-timepicker-input" autocomplete="off" />
-							<input type="hidden" name="late_student" value="35" />
-                                </form>
-						
-						
+				
 					</td>
-					<td class="status_col">Late  arriving at 10:30 am						</td>
+					<td class="status_col">Present 						</td>
 				</tr>
 	                            
 				        <tr>
@@ -819,9 +785,13 @@
 					<td class="student_col_buttons">
 						                    
                         <!-- IF CHECK OUT IS NEAR -->
-				
+										<form action="index.php" method="post">
+							<input type="submit" value="P" class="p_button tablebutton" name="present_button" />
+							<input type="hidden" name="present_bstudent" value="26" />
+						</form>
+						
 					</td>
-					<td class="status_col">Present 						</td>
+					<td class="status_col">Field Trip with Special_Approved returning at 3:17 pm						</td>
 				</tr>
 	                            
 				        <tr>
@@ -919,13 +889,9 @@
 					<td class="student_col_buttons">
 						                    
                         <!-- IF CHECK OUT IS NEAR -->
-										<form action="index.php" method="post">
-							<input type="submit" value="P" class="p_button tablebutton" name="present_button" />
-							<input type="hidden" name="present_bstudent" value="43" />
-						</form>
-						
+				
 					</td>
-					<td class="status_col">Field Trip with Nic returning at 11:30 am						</td>
+					<td class="status_col">Present 						</td>
 				</tr>
 	                            
 				        <tr>
@@ -963,13 +929,9 @@
 					<td class="student_col_buttons">
 						                    
                         <!-- IF CHECK OUT IS NEAR -->
-										<form action="index.php" method="post">
-							<input type="submit" value="P" class="p_button tablebutton" name="present_button" />
-							<input type="hidden" name="present_bstudent" value="32" />
-						</form>
-						
+				
 					</td>
-					<td class="status_col">Independent Study  returning at 11:45 am						</td>
+					<td class="status_col">Present 						</td>
 				</tr>
 	                            
 				        <tr>
@@ -1067,13 +1029,9 @@
 					<td class="student_col_buttons">
 						                    
                         <!-- IF CHECK OUT IS NEAR -->
-										<form action="index.php" method="post">
-							<input type="submit" value="P" class="p_button tablebutton" name="present_button" />
-							<input type="hidden" name="present_bstudent" value="7" />
-						</form>
-						
+				
 					</td>
-					<td class="status_col">Offsite at Specialty's  returning at 10:25 am						</td>
+					<td class="status_col">Present 						</td>
 				</tr>
 	                            
 				        <tr>
@@ -1133,7 +1091,7 @@
                         <!-- IF CHECK OUT IS NEAR -->
 				
 					</td>
-					<td class="status_col">Present 						</td>
+					<td class="status_col">Checked Out 						</td>
 				</tr>
 	                            
 				        <tr>
