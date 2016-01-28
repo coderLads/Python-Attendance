@@ -53,6 +53,6 @@ def callback():
 	master.destroy()
 
 b = Button(master, text="Go!", width=10, command=callback)
-b.pack()
+b.pack(pady=10)
 
 mainloop()
