@@ -5,8 +5,6 @@ from Tkinter import Tk
 from Tkinter import *
 import os
 
-#attendance.py Integrity! Offsite 11:30 Pings 40 50 17
-
 master = Tk()
 master.title("PyAttendance Gui")
 
