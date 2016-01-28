@@ -17,8 +17,8 @@ studentname.pack()
 def callback():
 	output = str(status.get()) + " " + str(returntime.get()) + " " + str(info.get()) + " " + str(studentname.get())
 	print(output)
-	os.system("attendance.py " + "Bravery! " + output)
 	os.system("speak.py " + "'I think you said'" + output)
+	os.system("attendance.py " + "Bravery! " + output)
 	master.destroy()
 
 b = Button(master, text="Submit", width=10, command=callback)
