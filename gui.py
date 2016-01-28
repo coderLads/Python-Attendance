@@ -13,35 +13,40 @@ master.title("PyAttendance Gui")
 master.minsize(width=300, height=100)
 master.maxsize(width=1000, height=1000)
 
-StatusLabel = Label(master, text="Status Name:")
+canvas = Canvas(width = 300, height = 100)
+canvas.pack(expand = YES, fill = BOTH)
+image = ImageTk.PhotoImage(file = "logo.gif")
+canvas.create_image(20, 5, image = image, anchor = NW)
+
+StatusLabel = Label(canvas, text="Status Name:")
 StatusLabel.grid(row=0,column=0)
 StatusLabel.pack()
 
-status = Entry(master)
+status = Entry(canvas)
 status.grid(row=0,column=1)
 status.pack()
 
-ReturnLabel = Label(master, text="Return Time:")
+ReturnLabel = Label(canvas, text="Return Time:")
 ReturnLabel.grid(row=1,column=0)
 ReturnLabel.pack()
 
-returntime = Entry(master)
+returntime = Entry(canvas)
 returntime.grid(row=1,column=1)
 returntime.pack()
 
-InfoLabel = Label(master, text="Other Info:")
+InfoLabel = Label(canvas, text="Other Info:")
 InfoLabel.grid(row=2,column=0)
 InfoLabel.pack()
 
-info = Entry(master)
+info = Entry(canvas)
 info.grid(row=2,column=1)
 info.pack()
 
-NameLabel = Label(master, text="Student Name:")
+NameLabel = Label(canvas, text="Student Name:")
 NameLabel.grid(row=3,column=0)
 NameLabel.pack()
 
-studentname = Entry(master)
+studentname = Entry(canvas)
 studentname.grid(row=3,column=1)
 studentname.pack()
 
@@ -52,7 +57,7 @@ def callback():
 	os.system("attendance.py " + "Bravery! " + output)
 	master.destroy()
 
-b = Button(master, text="Go!", width=10, command=callback)
+b = Button(canvas, text="Go!", width=10, command=callback)
 b.pack(pady=10)
 
 mainloop()
