@@ -1,17 +1,48 @@
+import Tkinter
+import Image 
+import ImageTk
+from Tkinter import Tk
 from Tkinter import *
 import os
 
 #attendance.py Integrity! Offsite 11:30 Pings 40 50 17
 
 master = Tk()
+master.title("PyAttendance Gui")
+
+master.minsize(width=300, height=100)
+master.maxsize(width=1000, height=1000)
+
+StatusLabel = Label(master, text="Status Name:")
+StatusLabel.grid(row=0,column=0)
+StatusLabel.pack()
 
 status = Entry(master)
+status.grid(row=0,column=1)
 status.pack()
+
+ReturnLabel = Label(master, text="Return Time:")
+ReturnLabel.grid(row=1,column=0)
+ReturnLabel.pack()
+
 returntime = Entry(master)
+returntime.grid(row=1,column=1)
 returntime.pack()
+
+InfoLabel = Label(master, text="Other Info:")
+InfoLabel.grid(row=2,column=0)
+InfoLabel.pack()
+
 info = Entry(master)
+info.grid(row=2,column=1)
 info.pack()
+
+NameLabel = Label(master, text="Student Name:")
+NameLabel.grid(row=3,column=0)
+NameLabel.pack()
+
 studentname = Entry(master)
+studentname.grid(row=3,column=1)
 studentname.pack()
 
 def callback():
@@ -21,9 +52,7 @@ def callback():
 	os.system("attendance.py " + "Bravery! " + output)
 	master.destroy()
 
-b = Button(master, text="Submit", width=10, command=callback)
+b = Button(master, text="Go!", width=10, command=callback)
 b.pack()
 
 mainloop()
-status = Entry(master, width=50)
-status.pack()
