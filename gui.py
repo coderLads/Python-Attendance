@@ -5,8 +5,11 @@ from Tkinter import Tk
 from Tkinter import *
 import os
 
+#attendance.py Integrity! Offsite 11:30 Pings 40 50 17
+
 master = Tk()
 master.title("PyAttendance Gui")
+master.iconbitmap(default='icon.ico')
 
 master.minsize(width=300, height=100)
 master.maxsize(width=1000, height=1000)
@@ -15,6 +18,7 @@ canvas = Canvas(width = 300, height = 100)
 canvas.pack(expand = YES, fill = BOTH)
 image = ImageTk.PhotoImage(file = "logo.gif")
 canvas.create_image(20, 5, image = image, anchor = NW)
+
 
 StatusLabel = Label(canvas, text="Status Name:")
 StatusLabel.grid(row=0,column=0)
