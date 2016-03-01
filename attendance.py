@@ -28,20 +28,25 @@ studentid=0
 if sys.argv[1] == "help":
 	print("Incorrect Usage!")
 	print("arguments follow:")
-	print("password, statusname, returntime, info, student(s)...")
+	print("password, studentname, statusname, info, returntime")
 	print("note that custom facilitators and offsite locations are currently unavalible")
 	print("example:")
 	print("attendance.py Integrity! Offsite 11:30 Pings milo easton river")
 	sys.exit()
 
-password = sys.argv[1]
-statusname = sys.argv[2]
-returntime = sys.argv[3]
-if len(returntime) == 4:
-	returntime = returntime[:2] + ':' + returntime[2:]
-info = sys.argv[4]
-studentid = sys.argv[5]
 
+password = sys.argv[1]
+studentid = sys.argv[2]
+statusname = sys.argv[3]
+info = sys.argv[4]
+returntime = sys.argv[5]
+
+if ":" not in returntime:
+    if len(returntime) == 3:
+        returntime = returntime[:1] + ':' + returntime[1:]
+    else:
+        returntime = returntime[:2] + ':' + returntime[2:]
+print(returntime)
 chromedriver = 'C:\\Windows\\chromedriver.exe'
 browser = webdriver.Chrome(chromedriver)
 
@@ -86,6 +91,7 @@ elif statusname in fieldtriplist:
 	browser.find_element_by_xpath("//option[@value='" + info + "']").click()
 else:
 	gobutton = browser.find_element_by_name("present")
+
 gobutton.click();
 time.sleep(3)
 
