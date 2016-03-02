@@ -38,15 +38,16 @@ if sys.argv[1] == "help":
 password = sys.argv[1]
 studentid = sys.argv[2]
 statusname = sys.argv[3]
-info = sys.argv[4]
-returntime = sys.argv[5]
-
-if ":" not in returntime:
-    if len(returntime) == 3:
-        returntime = returntime[:1] + ':' + returntime[1:]
-    else:
-        returntime = returntime[:2] + ':' + returntime[2:]
-print(returntime)
+if len(sys.argv) >= 5:
+    info = sys.argv[4]
+if len(sys.argv) >= 6:
+    returntime = sys.argv[5]
+    if ":" not in returntime:
+        if len(returntime) == 3:
+            returntime = returntime[:1] + ':' + returntime[1:]
+        else:
+            returntime = returntime[:2] + ':' + returntime[2:]
+    print(returntime)
 chromedriver = 'C:\\Windows\\chromedriver.exe'
 browser = webdriver.Chrome(chromedriver)
 
@@ -78,19 +79,26 @@ if statusname in offsitelist or statusname in fieldtriplist:
 	whenreturn.send_keys(returntime)
 
 if statusname in offsitelist:
-	gobutton = browser.find_element_by_name("offsite")
-	info = names(info, ['World Pizza', 'Uwajimaya', 'Starbucks', "Specialty's", 'Eastern Cafe', 'Oasis', 'Pings', 'Chipotle', 'Marination'])
-	browser.find_element_by_xpath("//option[@value='" + info + "']").click()
+    print("offsite")
+    gobutton = browser.find_element_by_name("offsite")
+    info = names(info, ['World Pizza', 'Uwajimaya', 'Starbucks', "Specialty's", 'Eastern Cafe', 'Oasis', 'Pings', 'Chipotle', 'Marination'])
+    browser.find_element_by_xpath("//option[@value='" + info + "']").click()
 elif statusname in checkoutlist:
-	gobutton = browser.find_element_by_name("checkout")
+    print("checkout")
+    gobutton = browser.find_element_by_name("checkout")
 elif statusname in fieldtriplist:
-	gobutton = browser.find_element_by_name("fieldtrip")
-	if info == "Krista":
-		info = "Crysta"
-	info = names(info,['Crysta', 'Scobie', 'Liana', 'Nic', 'Andy', 'Special_Aproved', 'Chrissy', 'Sam', 'Sieglinde', 'Anne', 'Kristin_J', 'Melinda', 'Dan', 'Judy', 'Quinn_H'])
-	browser.find_element_by_xpath("//option[@value='" + info + "']").click()
+    print("fieldtrip")
+    gobutton = browser.find_element_by_name("fieldtrip")
+    if info == "Krista":
+        info = "Crysta"
+    info = names(info,['Crysta', 'Scobie', 'Liana', 'Nic', 'Andy', 'Special_Aproved', 'Chrissy', 'Sam', 'Sieglinde', 'Anne', 'Kristin_J', 'Melinda', 'Dan', 'Judy', 'Quinn_H'])
+    browser.find_element_by_xpath("//option[@value='" + info + "']").click()
 else:
-	gobutton = browser.find_element_by_name("present")
+    print("present")
+    time.sleep(5)
+    #gobutton = browser.find_element_by_name("present")
+    gobutton = browser.find_element_by_xpath("//input[@id='present_button']")
+    print(gobutton)
 
 gobutton.click();
 time.sleep(3)
