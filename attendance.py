@@ -97,11 +97,13 @@ else:
     print("present")
     time.sleep(5)
     #gobutton = browser.find_element_by_name("present")
-    gobutton = browser.find_element_by_xpath("//input[@id='present_button']")
-    print(gobutton)
+    gobutton = browser.find_element_by_xpath("//input[@class='PSCSbtn button']")
+    for i in browser.find_elements_by_xpath("//*[@type='submit']"):
+        print(i.get_attribute("value") + " : " + i.get_attribute("name") + " : " + i.get_attribute("id") + " : " + i.get_attribute("class"))
+    print("gobutton : " + str(gobutton))
 
 gobutton.click();
-time.sleep(3)
+time.sleep(10)
 
 output = browser.page_source.encode('utf-8')
 if '<div class="error"' in output:
