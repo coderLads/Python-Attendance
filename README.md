@@ -10,11 +10,11 @@ Library for using the pscs attendance system via python and via microphone
 - pywin32
 
 #Files include:#
-attendance.py - uses command line arguments to open a selenium browser instance and sign people in and out.
-gui.py - A simple python UI that uses attendance.py
-nl.py - Converts a full sentence to passable command line arguments for attendance.py
-speak.py - Speaks any string passed to it as command line arguments.
-microphone_recognition.py - Recognises what is spoken, and passes that to nl.py
+- attendance.py - uses command line arguments to open a selenium browser instance and sign people in and out.
+- gui.py - A simple python UI that uses attendance.py
+- nl.py - Converts a full sentence to passable command line arguments for attendance.py
+- speak.py - Speaks any string passed to it as command line arguments.
+- microphone_recognition.py - Recognises what is spoken, and passes that to nl.py
 
 Right now, you can either use the GUI, or you can run microphone_recognition.py and speak a sentence.
 For example:
