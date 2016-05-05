@@ -1,7 +1,7 @@
 # Python-Attendance
 Library for using the pscs attendance system via python and via microphone
 
-Requires:
+#Requires:#
 Python 2.7+
 fuzzywuzzy
 speechrecongnition
@@ -9,7 +9,7 @@ selenium
 pyttyx
 pywin32
 
-Files include:
+#Files include:#
 attendance.py - uses command line arguments to open a selenium browser instance and sign people in and out.
 gui.py - A simple python UI that uses attendance.py
 nl.py - Converts a full sentence to passable command line arguments for attendance.py
@@ -23,4 +23,4 @@ Make sure that all important words are included in your sentence, including stat
 
 You also may call attendance.py using the command line.
 For example:
-attendance.py Integrity! Offsite 11:30 Pings Milo
+*attendance.py Integrity! Offsite 11:30 Pings Milo*
